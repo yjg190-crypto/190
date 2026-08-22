@@ -330,6 +330,103 @@ h1, h2, h3 {
 .footer-grid a { color: var(--text-muted); }
 
 /* ==========================================================================
+   Yahoo型ポータル — 密集見出しリンク
+   ========================================================================== */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  margin: 40px 0 60px;
+}
+.portal-col {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 8px;
+}
+.portal-col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--paper-raised);
+  border-bottom: 1px solid var(--line);
+}
+.portal-col-head h2 {
+  font-size: 0.98rem;
+  margin: 0;
+  color: var(--ink);
+}
+.portal-col-head a {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+.portal-links {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+.portal-links li {
+  border-bottom: 1px dotted var(--line);
+}
+.portal-links li:last-child { border-bottom: none; }
+.portal-links a {
+  display: block;
+  padding: 9px 18px;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.portal-links a:hover {
+  color: var(--seal);
+  text-decoration: none;
+  background: rgba(178, 58, 46, 0.04);
+}
+.portal-links .new-mark {
+  display: inline-block;
+  font-size: 0.62rem;
+  color: #fff;
+  background: var(--seal);
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-right: 6px;
+  transform: translateY(-1px);
+}
+.portal-links .date-mark {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  margin-right: 8px;
+}
+
+/* トップ帯:速報ティッカー風 */
+.ticker-bar {
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-bar .wrap {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  gap: 14px;
+}
+.ticker-bar .ticker-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--brass);
+  flex-shrink: 0;
+}
+.ticker-bar .ticker-text {
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ticker-bar a { color: var(--paper); }
+
+/* ==========================================================================
    分类页(Category Pages)
    ========================================================================== */
 .breadcrumb {
