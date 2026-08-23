@@ -336,7 +336,7 @@ h1, h2, h3 {
 .home-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 260px;
-  gap: 28px;
+  gap: 32px;
   align-items: start;
   margin: 8px 0 60px;
 }
@@ -346,6 +346,14 @@ h1, h2, h3 {
 }
 @media (max-width: 700px) {
   .home-layout { grid-template-columns: 1fr; }
+  .home-layout .main-col + .main-col { border-left: none; padding-left: 0; margin-left: 0; }
+}
+
+/* メインカラム同士の境界線(観光とニュースを明確に区切る) */
+.home-layout .main-col + .main-col {
+  border-left: 1px solid var(--line);
+  padding-left: 24px;
+  margin-left: -24px;
 }
 
 .tier-label {
@@ -356,34 +364,39 @@ h1, h2, h3 {
   margin: 0 0 14px;
 }
 
-/* 観光スポット:縦積みカード(画像は上、テキストは下) */
-.spot-stack {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+/* 観光スポット:高密度テキストリスト(ニュースと統一感のあるデザイン) */
+.spot-list-dense {
+  border-top: 1px solid var(--line);
+  margin: 0;
 }
-.spot-stack .spot-card { display: block; }
-.spot-stack .spot-image {
-  aspect-ratio: 4 / 3;
-  min-height: 0;
-  font-size: 0.72rem;
-  border-radius: var(--radius) var(--radius) 0 0;
+.spot-item {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 5px 0;
 }
-.spot-stack .spot-body {
-  padding: 10px 12px 12px;
-  border: 1px solid var(--line);
-  border-top: none;
-  border-radius: 0 0 var(--radius) var(--radius);
+.spot-item-city {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.68rem;
+  color: var(--brass);
+  min-width: 34px;
 }
-.spot-stack h3 { font-size: 0.9rem; margin-bottom: 3px; line-height: 1.35; }
-.spot-stack p { font-size: 0.78rem; margin: 0; }
-.spot-stack .spot-city { margin-bottom: 3px; }
-@media (max-width: 480px) {
-  .spot-stack { grid-template-columns: 1fr; }
+.spot-item a {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.84rem;
+  color: var(--ink);
+  font-weight: 500;
 }
+.spot-item a:hover { color: var(--seal); }
 
 /* ニュース・コラム:高密度リスト(観光と同等幅、1行固定・上端揃え) */
-.news-dense {
+.news-list.news-dense {
   border-top: 1px solid var(--line);
   margin: 0;
 }
@@ -391,25 +404,17 @@ h1, h2, h3 {
   display: flex;
   align-items: baseline;
   flex-wrap: nowrap;
-  gap: 7px;
+  gap: 6px;
   padding: 5px 0;
   border-bottom: none;
 }
-.news-dense .news-date {
+.news-list.news-dense .news-item .news-date {
   flex-shrink: 0;
   white-space: nowrap;
   font-size: 0.68rem;
   color: var(--brass);
   min-width: 0;
-}
-.news-dense .news-tag {
-  flex-shrink: 0;
-  white-space: nowrap;
-  font-size: 0.6rem;
-  color: var(--seal);
-  border: 1px solid var(--seal);
-  border-radius: 999px;
-  padding: 1px 6px;
+  letter-spacing: normal;
 }
 .news-dense .news-item a {
   flex: 1 1 auto;
@@ -422,16 +427,26 @@ h1, h2, h3 {
   font-weight: 500;
 }
 .news-dense .news-item a:hover { color: var(--seal); }
-.news-dense .pin-mark {
-  display: inline-block;
-  flex-shrink: 0;
-  font-size: 0.6rem;
-  color: #fff;
-  background: var(--ink);
-  padding: 1px 5px;
-  border-radius: 2px;
-  white-space: nowrap;
+
+/* 広告・おすすめ枠(サイドバー最下部) */
+.ad-slot {
+  margin-top: 6px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  background: var(--paper-raised);
 }
+.ad-slot .ad-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+.ad-slot h4 { font-size: 0.86rem; margin: 0 0 4px; }
+.ad-slot h4 a { color: var(--ink); }
+.ad-slot p { font-size: 0.78rem; color: var(--text-muted); margin: 0; }
+
 
 /* サイドバー:カテゴリ別リンク群(高密度) */
 .side-group {
