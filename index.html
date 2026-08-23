@@ -11,43 +11,31 @@
 </head>
 <body>
 
+<!-- ヘッダー:ロゴ+ブランド名+キャッチコピーを一行に統合 -->
 <header class="site-header">
-  <div class="header-bar" style="justify-content:center;">
-    <a href="index.html" class="brand"><img src="assets/logo.svg" width="30" height="30" alt=""> パンダの <small>PANDA NO</small></a>
+  <div class="header-bar" style="flex-wrap:wrap; gap:10px 20px;">
+    <a href="index.html" class="brand"><img src="assets/logo.svg" width="28" height="28" alt=""> パンダの <small>PANDA NO</small></a>
+    <p style="margin:0; font-size:0.86rem; color:var(--text-muted);">言葉の壁より先に、情報の壁を越える——現地確認済みの情報だけを届けます。</p>
   </div>
 </header>
 
-<div class="ticker-bar">
-  <div class="wrap">
-    <span class="ticker-label">最新</span>
-    <span class="ticker-text"><a href="articles/visa-policy.html">ビザ免除の適用範囲、一部拡大の報道について(2026.08.20更新)</a></span>
-  </div>
-</div>
-
 <main>
-  <section class="wrap" style="padding:20px 0 4px;">
-    <p style="margin:0; font-size:0.95rem; color:var(--text-muted); border-left:3px solid var(--seal); padding-left:14px;">
-      言葉の壁より先に、情報の壁を越える——現地で確認した最新情報だけを届けます。
-    </p>
-  </section>
-
-  <section class="wrap">
+  <section class="wrap" style="padding-top:24px;">
     <div class="home-layout">
 
-      <!-- メインカラム:観光スポット(大)+ ニュース(高密度) -->
+      <!-- 観光スポット(画像あり、ニュースと同等幅) -->
       <div class="main-col">
-
         <div style="display:flex; align-items:baseline; justify-content:space-between;">
           <p class="tier-label" style="margin-bottom:14px;">観光スポット</p>
-          <a href="categories/spots.html" style="font-size:0.82rem; color:var(--text-muted);">一覧 →</a>
+          <a href="categories/spots.html" style="font-size:0.78rem; color:var(--text-muted);">一覧 →</a>
         </div>
-        <div class="spot-feature-grid">
-          <div class="spot-hero">
+        <div class="spot-stack">
+          <div class="spot-card">
             <div class="spot-image">西湖<br>杭州</div>
             <div class="spot-body">
               <p class="spot-city">杭州</p>
               <h3>西湖のベストシーズンと回り方</h3>
-              <p>日本人観光客が少ない穴場ルートも紹介。朝夕の時間帯で表情が変わる湖畔の歩き方を解説。</p>
+              <p>穴場ルートも紹介。</p>
             </div>
           </div>
           <div class="spot-card">
@@ -55,100 +43,159 @@
             <div class="spot-body">
               <p class="spot-city">北京</p>
               <h3>故宮 予約から回り方まで</h3>
-              <p>日本語予約ページの使い方を画面付きで解説。</p>
+              <p>日本語予約の画面付き解説。</p>
             </div>
           </div>
           <div class="spot-card">
             <div class="spot-image">外灘<br>上海</div>
             <div class="spot-body">
               <p class="spot-city">上海</p>
-              <h3>外灘の夜景、ベストな時間帯は?</h3>
-              <p>混雑を避けて楽しむタイミングを紹介。</p>
+              <h3>外灘の夜景、ベストな時間帯</h3>
+              <p>混雑を避けるタイミング。</p>
+            </div>
+          </div>
+          <div class="spot-card">
+            <div class="spot-image">パンダ<br>成都</div>
+            <div class="spot-body">
+              <p class="spot-city">成都</p>
+              <h3>パンダ基地、混雑を避けるコツ</h3>
+              <p>開園直後が狙い目。</p>
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- ニュース・コラム(観光と同等幅、高密度) -->
+      <div class="main-col">
         <div style="display:flex; align-items:baseline; justify-content:space-between;">
           <p class="tier-label" style="margin-bottom:14px;">ニュース・コラム</p>
-          <a href="categories/news.html" style="font-size:0.82rem; color:var(--text-muted);">一覧 →</a>
+          <a href="categories/news.html" style="font-size:0.78rem; color:var(--text-muted);">一覧 →</a>
         </div>
         <div class="news-list news-dense">
           <div class="news-item">
-            <span class="news-date">2026.08.20</span>
+            <span class="news-date"><span class="pin-mark">置頂</span>08.20</span>
             <span><span class="news-tag">政策</span><a href="articles/visa-policy.html">ビザ免除の適用範囲、一部拡大の報道について</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.08.15</span>
+            <span class="news-date">08.15</span>
             <span><span class="news-tag">コラム</span><a href="#">初めての高鉄、切符よりも先に知るべきこと</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.08.07</span>
+            <span class="news-date">08.07</span>
             <span><span class="news-tag">あるある</span><a href="#">現地で聞いた、日本人がよく戸惑うこと5選</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.07.30</span>
+            <span class="news-date">07.30</span>
             <span><span class="news-tag">政策</span><a href="#">高鉄の外国人向けチケット規則が一部変更</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.07.22</span>
+            <span class="news-date">07.22</span>
             <span><span class="news-tag">コラム</span><a href="#">現地のコンビニで地味に助かったもの3つ</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.07.15</span>
+            <span class="news-date">07.15</span>
             <span><span class="news-tag">あるある</span><a href="#">中国のタクシー、乗る前に知っておきたいこと</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.07.08</span>
+            <span class="news-date">07.08</span>
             <span><span class="news-tag">政策</span><a href="#">空港の税関申告、電子化が進んでいる件</a></span>
           </div>
           <div class="news-item">
-            <span class="news-date">2026.07.01</span>
+            <span class="news-date">07.01</span>
             <span><span class="news-tag">コラム</span><a href="#">両替すべきか、現地決済だけで済ませるか</a></span>
           </div>
+          <div class="news-item">
+            <span class="news-date">06.24</span>
+            <span><span class="news-tag">あるある</span><a href="#">レストランでスマホメニューしかない件</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">06.17</span>
+            <span><span class="news-tag">政策</span><a href="#">一部都市で外国人向け案内標識が増加</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">06.10</span>
+            <span><span class="news-tag">コラム</span><a href="#">地下鉄の荷物検査、実際どのくらい厳しい?</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">06.03</span>
+            <span><span class="news-tag">あるある</span><a href="#">中国語が話せなくても意外と伝わった話</a></span>
+          </div>
         </div>
-
       </div>
 
-      <!-- サイドバー:その他カテゴリ -->
+      <!-- サイドバー:その他カテゴリ(テキストのみ) -->
       <aside class="side-col">
 
         <div class="side-group">
-          <div class="side-group-head">
-            <span class="side-dot d-visa"></span>
-            <h3><a href="categories/visa.html">ビザ・入国</a></h3>
-          </div>
+          <div class="side-group-head"><span class="side-dot d-a"></span><h3><a href="categories/visa.html">ビザ・入国</a></h3></div>
           <ul class="side-links">
             <li><a href="articles/visa-policy.html">ビザ免除の最新条件</a></li>
             <li><a href="#">入国カードの書き方</a></li>
-            <li><a href="#">顔認証ゲートの使い方</a></li>
           </ul>
-          <a class="side-more" href="categories/visa.html">もっと見る →</a>
         </div>
 
         <div class="side-group">
-          <div class="side-group-head">
-            <span class="side-dot d-payment"></span>
-            <h3><a href="categories/payment.html">決済・アプリ</a></h3>
-          </div>
+          <div class="side-group-head"><span class="side-dot d-b"></span><h3><a href="categories/payment.html">決済・アプリ</a></h3></div>
           <ul class="side-links">
-            <li><a href="categories/payment.html#wechat">WeChat Pay 登録手順</a></li>
-            <li><a href="categories/payment.html#alipay">Alipay 登録手順</a></li>
-            <li><a href="categories/payment.html#esim">eSIM 各社比較</a></li>
+            <li><a href="categories/payment.html#wechat">WeChat Pay 登録</a></li>
+            <li><a href="categories/payment.html#alipay">Alipay 登録</a></li>
           </ul>
-          <a class="side-more" href="categories/payment.html">もっと見る →</a>
         </div>
 
         <div class="side-group">
-          <div class="side-group-head">
-            <span class="side-dot d-transport"></span>
-            <h3><a href="categories/transport.html">交通</a></h3>
-          </div>
+          <div class="side-group-head"><span class="side-dot d-c"></span><h3><a href="categories/transport.html">交通</a></h3></div>
           <ul class="side-links">
             <li><a href="#">12306 予約ガイド</a></li>
             <li><a href="#">高徳地図 vs 百度地図</a></li>
-            <li><a href="#">DiDiの呼び方</a></li>
           </ul>
-          <a class="side-more" href="categories/transport.html">もっと見る →</a>
+        </div>
+
+        <div class="side-group">
+          <div class="side-group-head"><span class="side-dot d-a"></span><h3><a href="categories/vpn.html">VPN・ネット接続</a></h3></div>
+          <ul class="side-links">
+            <li><a href="categories/vpn.html">現地VPNの選び方</a></li>
+            <li><a href="categories/vpn.html">eSIM vs レンタルWi-Fi</a></li>
+          </ul>
+        </div>
+
+        <div class="side-group">
+          <div class="side-group-head"><span class="side-dot d-b"></span><h3><a href="categories/insurance.html">保険</a></h3></div>
+          <ul class="side-links">
+            <li><a href="categories/insurance.html">おすすめの保険タイプ</a></li>
+            <li><a href="categories/insurance.html">カード付帯保険で足りるか</a></li>
+          </ul>
+        </div>
+
+        <div class="side-group">
+          <div class="side-group-head"><span class="side-dot d-c"></span><h3><a href="categories/money.html">両替・お金</a></h3></div>
+          <ul class="side-links">
+            <li><a href="categories/money.html">両替は日本と現地どちらが得か</a></li>
+            <li><a href="categories/money.html">現金はどれくらい必要か</a></li>
+          </ul>
+        </div>
+
+        <div class="side-group">
+          <div class="side-group-head"><span class="side-dot d-a"></span><h3><a href="categories/food.html">グルメ・レストラン</a></h3></div>
+          <ul class="side-links">
+            <li><a href="categories/food.html">スマホメニューの注文方法</a></li>
+            <li><a href="categories/food.html">アレルギーの伝え方</a></li>
+          </ul>
+        </div>
+
+        <div class="side-group">
+          <div class="side-group-head"><span class="side-dot d-b"></span><h3><a href="categories/hotel.html">宿泊・ホテル</a></h3></div>
+          <ul class="side-links">
+            <li><a href="categories/hotel.html">外国人OKなホテルの見分け方</a></li>
+            <li><a href="categories/hotel.html">チェックイン時の外国人登記</a></li>
+          </ul>
+        </div>
+
+        <div class="side-group">
+          <div class="side-group-head"><span class="side-dot d-c"></span><h3><a href="categories/safety.html">安全・トラブル対策</a></h3></div>
+          <ul class="side-links">
+            <li><a href="categories/safety.html">パスポート紛失時の対処法</a></li>
+            <li><a href="categories/safety.html">よくあるトラブルと回避法</a></li>
+          </ul>
         </div>
 
       </aside>
