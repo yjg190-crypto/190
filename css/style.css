@@ -382,48 +382,54 @@ h1, h2, h3 {
   .spot-stack { grid-template-columns: 1fr; }
 }
 
-/* ニュース・コラム:高密度リスト(観光と同等幅、日付は折り返さない) */
+/* ニュース・コラム:高密度リスト(観光と同等幅、1行固定・上端揃え) */
 .news-dense {
   border-top: 1px solid var(--line);
+  margin: 0;
 }
 .news-dense .news-item {
-  padding: 6px 0;
-  gap: 8px;
-  flex-wrap: nowrap;
+  display: flex;
   align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 7px;
+  padding: 5px 0;
+  border-bottom: none;
 }
-.news-dense .news-item > span:last-child {
+.news-dense .news-date {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.68rem;
+  color: var(--brass);
   min-width: 0;
-  overflow: hidden;
+}
+.news-dense .news-tag {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.6rem;
+  color: var(--seal);
+  border: 1px solid var(--seal);
+  border-radius: 999px;
+  padding: 1px 6px;
 }
 .news-dense .news-item a {
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: inline-block;
-  max-width: 100%;
-  vertical-align: bottom;
+  font-size: 0.84rem;
+  color: var(--ink);
+  font-weight: 500;
 }
-.news-dense .news-date {
-  font-size: 0.68rem;
-  min-width: 40px;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-.news-dense .news-tag {
-  font-size: 0.6rem;
-  padding: 1px 6px;
-  margin-right: 6px;
-}
-.news-dense a { font-size: 0.84rem; }
+.news-dense .news-item a:hover { color: var(--seal); }
 .news-dense .pin-mark {
   display: inline-block;
+  flex-shrink: 0;
   font-size: 0.6rem;
   color: #fff;
   background: var(--ink);
   padding: 1px 5px;
   border-radius: 2px;
-  margin-right: 6px;
   white-space: nowrap;
 }
 
