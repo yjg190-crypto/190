@@ -89,13 +89,14 @@ h1, h2, h3 {
 
 .brand {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-display);
   font-size: 1.25rem;
   color: var(--ink);
   letter-spacing: 0.02em;
 }
+.brand img { flex-shrink: 0; }
 .brand small {
   font-family: var(--font-body);
   font-size: 0.65rem;
@@ -330,7 +331,111 @@ h1, h2, h3 {
 .footer-grid a { color: var(--text-muted); }
 
 /* ==========================================================================
-   Yahoo型ポータル — 密集見出しリンク
+   ホーム — 主従レイアウト(メイン+サイドバー)
+   ========================================================================== */
+.home-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: start;
+  margin: 8px 0 60px;
+}
+@media (max-width: 860px) {
+  .home-layout { grid-template-columns: 1fr; }
+}
+
+.tier-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+/* 観光スポット:非対称グリッド(大きな1枚+小さめ2枚) */
+.spot-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.spot-hero {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper-raised);
+}
+.spot-hero .spot-image {
+  aspect-ratio: auto;
+  min-height: 170px;
+  font-size: 1.05rem;
+}
+.spot-hero .spot-body { padding: 22px 26px; display: flex; flex-direction: column; justify-content: center; }
+.spot-hero h3 { font-size: 1.2rem; }
+.spot-hero p { font-size: 0.94rem; }
+
+@media (max-width: 560px) {
+  .spot-feature-grid { grid-template-columns: 1fr; }
+  .spot-hero { grid-template-columns: 1fr; }
+}
+
+/* ニュース・コラム:高密度リスト */
+.news-dense {
+  border-top: 1px solid var(--line);
+}
+.news-dense .news-item { padding: 11px 0; }
+
+/* サイドバー:カテゴリ別リンク群 */
+.side-group {
+  margin-bottom: 30px;
+  padding-bottom: 2px;
+}
+.side-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.side-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.side-dot.d-visa { background: var(--brass); }
+.side-dot.d-payment { background: var(--seal); }
+.side-dot.d-transport { background: var(--ink); }
+.side-group-head h3 {
+  font-size: 0.98rem;
+  margin: 0;
+}
+.side-group-head h3 a { color: var(--ink); }
+.side-links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 17px;
+}
+.side-links li {
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 0.87rem;
+}
+.side-links li:last-child { border-bottom: none; }
+.side-links a { color: var(--text); }
+.side-links a:hover { color: var(--seal); }
+.side-more {
+  display: inline-block;
+  margin-top: 8px;
+  padding-left: 17px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Yahoo型ポータル — 密集見出しリンク(従ティアで使用、コンパクト版)
    ========================================================================== */
 .portal-grid {
   display: grid;
@@ -340,6 +445,13 @@ h1, h2, h3 {
   border-left: 1px solid var(--line);
   margin: 40px 0 60px;
 }
+.portal-grid.compact {
+  margin-top: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.portal-grid.compact .portal-col-head { padding: 8px 14px; }
+.portal-grid.compact .portal-col-head h2 { font-size: 0.8rem; }
+.portal-grid.compact .portal-links a { padding: 7px 14px; font-size: 0.83rem; }
 .portal-col {
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);

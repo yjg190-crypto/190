@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>通関手帖 | 日本人のための中国旅行ガイド</title>
-<meta name="description" content="ビザ、決済、交通、観光スポット、動画まで—中国を旅する日本人のための実用ガイド。現地在住者が実際に確認した最新情報だけを掲載。">
+<title>パンダの | 日本人のための中国旅行ガイド</title>
+<meta name="description" content="観光スポット、ニュース、ビザ、決済、交通まで—中国を旅する日本人のための実用ガイド。現地在住者が実際に確認した最新情報だけを掲載。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -12,23 +12,11 @@
 <body>
 
 <header class="site-header">
-  <div class="header-bar">
-    <a href="index.html" class="brand">通関手帖 <small>TSŪKAN TECHŌ</small></a>
-    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li><a href="categories/visa.html">ビザ・入国</a></li>
-        <li><a href="categories/payment.html">決済・アプリ</a></li>
-        <li><a href="categories/transport.html">交通</a></li>
-        <li><a href="categories/spots.html">観光スポット</a></li>
-        <li><a href="categories/videos.html">動画</a></li>
-        <li><a href="categories/news.html">ニュース</a></li>
-      </ul>
-    </nav>
+  <div class="header-bar" style="justify-content:center;">
+    <a href="index.html" class="brand"><img src="assets/logo.svg" width="30" height="30" alt=""> パンダの <small>PANDA NO</small></a>
   </div>
 </header>
 
-<!-- 速報ティッカー -->
 <div class="ticker-bar">
   <div class="wrap">
     <span class="ticker-label">最新</span>
@@ -37,100 +25,133 @@
 </div>
 
 <main>
-  <!-- Hero:縮小版 -->
-  <section class="hero wrap" style="padding:36px 0 24px;">
-    <div class="ticket">
-      <div class="ticket-main" style="padding:28px 32px;">
-        <p class="eyebrow" style="margin-bottom:8px;">中国 独立自由行のための実用情報</p>
-        <h1 style="font-size:clamp(1.5rem,3vw,2.1rem);">言葉の壁より先に、情報の壁を越える。</h1>
-        <p class="lead" style="margin:12px 0 0; font-size:0.95rem;">現地在住者が実際に確認した最新情報だけを、更新日を明記して届けます。</p>
-      </div>
-      <div class="ticket-stub" style="padding:24px;">
-        <span class="stub-label">Last Verified</span>
-        <div class="stamp" style="width:96px;height:96px;font-size:0.68rem;">現地確認<br>済み情報</div>
-      </div>
-    </div>
+  <section class="wrap" style="padding:20px 0 4px;">
+    <p style="margin:0; font-size:0.95rem; color:var(--text-muted); border-left:3px solid var(--seal); padding-left:14px;">
+      言葉の壁より先に、情報の壁を越える——現地で確認した最新情報だけを届けます。
+    </p>
   </section>
 
-  <!-- Yahoo型 見出しポータル -->
   <section class="wrap">
-    <div class="portal-grid">
+    <div class="home-layout">
 
-      <div class="portal-col">
-        <div class="portal-col-head">
-          <h2>ビザ・入国</h2>
-          <a href="categories/visa.html">一覧 →</a>
+      <!-- メインカラム:観光スポット(大)+ ニュース(高密度) -->
+      <div class="main-col">
+
+        <div style="display:flex; align-items:baseline; justify-content:space-between;">
+          <p class="tier-label" style="margin-bottom:14px;">観光スポット</p>
+          <a href="categories/spots.html" style="font-size:0.82rem; color:var(--text-muted);">一覧 →</a>
         </div>
-        <ul class="portal-links">
-          <li><a href="articles/visa-policy.html"><span class="new-mark">新</span>ビザ免除の最新条件と対象者</a></li>
-          <li><a href="#"><span class="date-mark">08.18</span>入国カードと税関申告の書き方</a></li>
-          <li><a href="#"><span class="date-mark">08.10</span>空港での顔認証ゲートの使い方</a></li>
-          <li><a href="#"><span class="date-mark">08.02</span>パスポート残存期間の注意点</a></li>
-        </ul>
+        <div class="spot-feature-grid">
+          <div class="spot-hero">
+            <div class="spot-image">西湖<br>杭州</div>
+            <div class="spot-body">
+              <p class="spot-city">杭州</p>
+              <h3>西湖のベストシーズンと回り方</h3>
+              <p>日本人観光客が少ない穴場ルートも紹介。朝夕の時間帯で表情が変わる湖畔の歩き方を解説。</p>
+            </div>
+          </div>
+          <div class="spot-card">
+            <div class="spot-image">故宮<br>北京</div>
+            <div class="spot-body">
+              <p class="spot-city">北京</p>
+              <h3>故宮 予約から回り方まで</h3>
+              <p>日本語予約ページの使い方を画面付きで解説。</p>
+            </div>
+          </div>
+          <div class="spot-card">
+            <div class="spot-image">外灘<br>上海</div>
+            <div class="spot-body">
+              <p class="spot-city">上海</p>
+              <h3>外灘の夜景、ベストな時間帯は?</h3>
+              <p>混雑を避けて楽しむタイミングを紹介。</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:baseline; justify-content:space-between;">
+          <p class="tier-label" style="margin-bottom:14px;">ニュース・コラム</p>
+          <a href="categories/news.html" style="font-size:0.82rem; color:var(--text-muted);">一覧 →</a>
+        </div>
+        <div class="news-list news-dense">
+          <div class="news-item">
+            <span class="news-date">2026.08.20</span>
+            <span><span class="news-tag">政策</span><a href="articles/visa-policy.html">ビザ免除の適用範囲、一部拡大の報道について</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.08.15</span>
+            <span><span class="news-tag">コラム</span><a href="#">初めての高鉄、切符よりも先に知るべきこと</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.08.07</span>
+            <span><span class="news-tag">あるある</span><a href="#">現地で聞いた、日本人がよく戸惑うこと5選</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.07.30</span>
+            <span><span class="news-tag">政策</span><a href="#">高鉄の外国人向けチケット規則が一部変更</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.07.22</span>
+            <span><span class="news-tag">コラム</span><a href="#">現地のコンビニで地味に助かったもの3つ</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.07.15</span>
+            <span><span class="news-tag">あるある</span><a href="#">中国のタクシー、乗る前に知っておきたいこと</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.07.08</span>
+            <span><span class="news-tag">政策</span><a href="#">空港の税関申告、電子化が進んでいる件</a></span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">2026.07.01</span>
+            <span><span class="news-tag">コラム</span><a href="#">両替すべきか、現地決済だけで済ませるか</a></span>
+          </div>
+        </div>
+
       </div>
 
-      <div class="portal-col">
-        <div class="portal-col-head">
-          <h2>決済・アプリ</h2>
-          <a href="categories/payment.html">一覧 →</a>
-        </div>
-        <ul class="portal-links">
-          <li><a href="#"><span class="new-mark">新</span>WeChat Pay 外国人登録の全手順</a></li>
-          <li><a href="#"><span class="date-mark">08.16</span>Alipayとどちらを使うべきか比較</a></li>
-          <li><a href="#"><span class="date-mark">08.09</span>eSIM 各社比較(実測データ付き)</a></li>
-          <li><a href="#"><span class="date-mark">08.01</span>Wi-Fiレンタルは今も必要か</a></li>
-        </ul>
-      </div>
+      <!-- サイドバー:その他カテゴリ -->
+      <aside class="side-col">
 
-      <div class="portal-col">
-        <div class="portal-col-head">
-          <h2>交通</h2>
-          <a href="categories/transport.html">一覧 →</a>
+        <div class="side-group">
+          <div class="side-group-head">
+            <span class="side-dot d-visa"></span>
+            <h3><a href="categories/visa.html">ビザ・入国</a></h3>
+          </div>
+          <ul class="side-links">
+            <li><a href="articles/visa-policy.html">ビザ免除の最新条件</a></li>
+            <li><a href="#">入国カードの書き方</a></li>
+            <li><a href="#">顔認証ゲートの使い方</a></li>
+          </ul>
+          <a class="side-more" href="categories/visa.html">もっと見る →</a>
         </div>
-        <ul class="portal-links">
-          <li><a href="#"><span class="new-mark">新</span>12306 高鉄チケット予約完全ガイド</a></li>
-          <li><a href="#"><span class="date-mark">08.14</span>高徳地図 vs 百度地図、どちらを入れるべきか</a></li>
-          <li><a href="#"><span class="date-mark">08.05</span>DiDiの呼び方と支払い設定</a></li>
-          <li><a href="#"><span class="date-mark">07.28</span>地下鉄の荷物検査、何がひっかかる?</a></li>
-        </ul>
-      </div>
 
-      <div class="portal-col">
-        <div class="portal-col-head">
-          <h2>観光スポット</h2>
-          <a href="categories/spots.html">一覧 →</a>
+        <div class="side-group">
+          <div class="side-group-head">
+            <span class="side-dot d-payment"></span>
+            <h3><a href="categories/payment.html">決済・アプリ</a></h3>
+          </div>
+          <ul class="side-links">
+            <li><a href="categories/payment.html#wechat">WeChat Pay 登録手順</a></li>
+            <li><a href="categories/payment.html#alipay">Alipay 登録手順</a></li>
+            <li><a href="categories/payment.html#esim">eSIM 各社比較</a></li>
+          </ul>
+          <a class="side-more" href="categories/payment.html">もっと見る →</a>
         </div>
-        <ul class="portal-links">
-          <li><a href="#"><span class="new-mark">新</span>西湖のベストシーズンと回り方(杭州)</a></li>
-          <li><a href="#"><span class="date-mark">08.12</span>故宮 予約から回り方まで(北京)</a></li>
-          <li><a href="#"><span class="date-mark">08.06</span>外灘の夜景、ベストな時間帯は?(上海)</a></li>
-          <li><a href="#"><span class="date-mark">07.30</span>成都のパンダ基地、混雑を避けるコツ</a></li>
-        </ul>
-      </div>
 
-      <div class="portal-col">
-        <div class="portal-col-head">
-          <h2>動画</h2>
-          <a href="categories/videos.html">一覧 →</a>
+        <div class="side-group">
+          <div class="side-group-head">
+            <span class="side-dot d-transport"></span>
+            <h3><a href="categories/transport.html">交通</a></h3>
+          </div>
+          <ul class="side-links">
+            <li><a href="#">12306 予約ガイド</a></li>
+            <li><a href="#">高徳地図 vs 百度地図</a></li>
+            <li><a href="#">DiDiの呼び方</a></li>
+          </ul>
+          <a class="side-more" href="categories/transport.html">もっと見る →</a>
         </div>
-        <ul class="portal-links">
-          <li><a href="#"><span class="new-mark">新</span>上海地下鉄の乗り方(実演)</a></li>
-          <li><a href="#"><span class="date-mark">08.11</span>WeChat Pay 登録を画面録画で解説</a></li>
-          <li><a href="#"><span class="date-mark">08.03</span>高鉄の車内、日本人が驚くポイント</a></li>
-        </ul>
-      </div>
 
-      <div class="portal-col">
-        <div class="portal-col-head">
-          <h2>ニュース・コラム</h2>
-          <a href="categories/news.html">一覧 →</a>
-        </div>
-        <ul class="portal-links">
-          <li><a href="#"><span class="date-mark">08.20</span>ビザ免除の適用範囲、一部拡大の報道について</a></li>
-          <li><a href="#"><span class="date-mark">08.15</span>初めての高鉄、切符よりも先に知るべきこと</a></li>
-          <li><a href="#"><span class="date-mark">08.07</span>現地で聞いた、日本人がよく戸惑うこと5選</a></li>
-        </ul>
-      </div>
+      </aside>
 
     </div>
   </section>
@@ -139,7 +160,7 @@
 <footer class="site-footer wrap">
   <div class="footer-grid">
     <div>
-      <strong style="color:var(--ink)">通関手帖</strong><br>
+      <strong style="color:var(--ink)">パンダの</strong><br>
       現地在住者が実際に確認した情報のみ掲載します。
     </div>
     <div>
@@ -150,6 +171,5 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
 </body>
 </html>

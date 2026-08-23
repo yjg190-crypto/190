@@ -1,0 +1,14 @@
+<svg width="34" height="34" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="パンダの ロゴ">
+<circle cx="60" cy="60" r="55" fill="none" stroke="#B23A2E" stroke-width="4" stroke-dasharray="5 4"/>
+<circle cx="34" cy="30" r="14" fill="#1C2B39" transform="rotate(-12 34 30)"/>
+<circle cx="88" cy="26" r="14" fill="#1C2B39" transform="rotate(18 88 26)"/>
+<ellipse cx="61" cy="66" rx="36" ry="32" fill="#F1ECE1" stroke="#1C2B39" stroke-width="3" transform="rotate(-4 61 66)"/>
+<ellipse cx="41" cy="62" rx="12" ry="15" fill="#1C2B39" transform="rotate(-25 41 62)"/>
+<ellipse cx="82" cy="58" rx="12" ry="10" fill="#1C2B39" transform="rotate(8 82 58)"/>
+<circle cx="43" cy="60" r="4" fill="#F1ECE1"/>
+<path d="M76 57 Q83 54 88 58" fill="none" stroke="#1C2B39" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="62" cy="76" rx="6" ry="4.5" fill="#1C2B39"/>
+<path d="M55 88 Q62 96 71 87" fill="none" stroke="#1C2B39" stroke-width="2.5" stroke-linecap="round" fill-opacity="0"/>
+<path d="M100 78 L106 62 L112 78 Z" fill="#5C7A4A"/>
+<path d="M100 88 L106 72 L112 88 Z" fill="#5C7A4A"/>
+</svg>
