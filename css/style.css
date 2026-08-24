@@ -799,6 +799,30 @@ article.content .callout {
   margin: 1.6em 0;
 }
 article.content ul { margin: 0 0 1.2em; padding-left: 1.4em; }
+article.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.6em;
+  font-size: 0.88rem;
+}
+article.content th, article.content td {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  text-align: left;
+}
+article.content th {
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-weight: 600;
+}
+article.content .check-list { list-style: none; padding-left: 0; }
+article.content .check-list li { padding-left: 1.6em; position: relative; }
+article.content .check-list li::before {
+  content: "☐";
+  position: absolute;
+  left: 0;
+  color: var(--seal);
+}
 article.content li { margin-bottom: 0.4em; }
 
 /* 関連記事(本文末尾) */
