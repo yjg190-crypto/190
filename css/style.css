@@ -752,7 +752,7 @@ h1, h2, h3 {
 .section-more a { font-size: 0.88rem; font-weight: 600; }
 
 /* ==========================================================================
-   文章页
+   文章页(左寄せ本文 + 右サイドバー)
    ========================================================================== */
 .article-header {
   padding: 48px 0 32px;
@@ -770,10 +770,20 @@ h1, h2, h3 {
   color: var(--brass);
   font-weight: 600;
 }
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 48px;
+  align-items: start;
+  padding: 40px 0 80px;
+}
+@media (max-width: 860px) {
+  .article-layout { grid-template-columns: 1fr; }
+}
+
 article.content {
   max-width: 68ch;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
 }
 article.content h2 {
   font-size: 1.35rem;
@@ -788,3 +798,36 @@ article.content .callout {
   font-size: 0.92rem;
   margin: 1.6em 0;
 }
+article.content ul { margin: 0 0 1.2em; padding-left: 1.4em; }
+article.content li { margin-bottom: 0.4em; }
+
+/* 関連記事(本文末尾) */
+.related-articles {
+  margin-top: 3em;
+  padding-top: 1.6em;
+  border-top: 1px solid var(--line);
+}
+.related-articles .tier-label { margin-bottom: 14px; }
+.related-articles ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-articles li {
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.related-articles li:last-child { border-bottom: none; }
+.related-articles a {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.94rem;
+}
+.related-articles a:hover { color: var(--seal); }
+.related-articles .cat-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  color: var(--brass);
+  margin-right: 8px;
+}
+
