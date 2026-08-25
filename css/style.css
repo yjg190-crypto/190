@@ -799,6 +799,14 @@ article.content .callout {
   margin: 1.6em 0;
 }
 article.content ul { margin: 0 0 1.2em; padding-left: 1.4em; }
+article.content .source-list {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+article.content .source-list li { margin-bottom: 0.15em; }
+article.content .source-list a { color: var(--text-muted); }
+article.content .source-list a:hover { color: var(--seal); }
 article.content table {
   width: 100%;
   border-collapse: collapse;
