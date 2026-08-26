@@ -334,15 +334,18 @@ h1, h2, h3 {
    ホーム — ヒーロー画像バナー(ロゴ重ね+複数画像フェード切替)
    ========================================================================== */
 .hero-banner {
-  margin: 0;
+  max-width: var(--container);
+  margin: 20px auto 0;
+  padding: 0 20px;
   position: relative;
-  overflow: hidden;
 }
 .hero-banner .hero-stage {
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 1;
   max-height: 380px;
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 .hero-banner .hero-stage img {
   position: absolute;
@@ -358,9 +361,10 @@ h1, h2, h3 {
 .hero-banner .hero-brand-overlay {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 20px;
   padding: 18px 22px 40px;
   background: linear-gradient(135deg, rgba(28,43,57,0.82) 0%, rgba(28,43,57,0.45) 55%, rgba(28,43,57,0) 100%);
+  border-radius: var(--radius) 0 0 0;
   z-index: 2;
 }
 .hero-banner .hero-brand-overlay .brand {
