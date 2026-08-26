@@ -808,6 +808,27 @@ article.content .callout {
   font-size: 0.92rem;
   margin: 1.6em 0;
 }
+article.content .related-report {
+  background: var(--paper-raised);
+  border-left: 3px solid var(--brass);
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  margin: 2em 0;
+}
+article.content .related-report .rr-label {
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+article.content .related-report p { margin: 0 0 0.8em; }
+article.content .related-report p:last-child { margin-bottom: 0; }
+article.content .related-report .rr-source {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+article.content .related-report .rr-source a { color: var(--text-muted); }
+article.content .related-report .rr-source a:hover { color: var(--seal); }
 article.content ul { margin: 0 0 1.2em; padding-left: 1.4em; }
 article.content .source-list {
   font-size: 0.82rem;
