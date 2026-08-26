@@ -342,6 +342,7 @@ h1, h2, h3 {
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 1;
+  max-height: 380px;
 }
 .hero-banner .hero-stage img {
   position: absolute;
