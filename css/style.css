@@ -331,27 +331,56 @@ h1, h2, h3 {
 .footer-grid a { color: var(--text-muted); }
 
 /* ==========================================================================
-   ホーム — ヒーロー画像バナー
+   ホーム — ヒーロー画像バナー(ロゴ重ね+複数画像フェード切替)
    ========================================================================== */
 .hero-banner {
-  margin: 20px 0 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
 }
-.hero-banner img {
+.hero-banner .hero-stage {
+  position: relative;
   width: 100%;
-  aspect-ratio: 21 / 8;
-  object-fit: cover;
-  border-radius: var(--radius);
-  display: block;
+  aspect-ratio: 2 / 1;
 }
-.hero-banner .hero-caption {
-  margin: 12px 0 0;
+.hero-banner .hero-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero-banner .hero-stage img.is-active { opacity: 1; }
+
+.hero-banner .hero-brand-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 22px 40px;
+  background: linear-gradient(135deg, rgba(28,43,57,0.82) 0%, rgba(28,43,57,0.45) 55%, rgba(28,43,57,0) 100%);
+  z-index: 2;
+}
+.hero-banner .hero-brand-overlay .brand {
+  color: var(--paper);
+  font-size: 1.15rem;
+}
+.hero-banner .hero-brand-overlay .brand small { color: var(--brass); }
+
+.hero-caption {
+  margin: 12px 20px 0;
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
   font-size: 0.95rem;
   color: var(--text-muted);
   border-left: 3px solid var(--seal);
   padding-left: 14px;
 }
 @media (max-width: 640px) {
-  .hero-banner img { aspect-ratio: 4 / 3; }
+  .hero-banner .hero-stage { aspect-ratio: 4 / 3; }
+  .hero-banner .hero-brand-overlay { padding: 14px 16px 28px; }
 }
 
 /* ==========================================================================

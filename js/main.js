@@ -16,3 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ホーム:ヒーロー画像を数秒ごとにフェード切替
+document.addEventListener("DOMContentLoaded", function () {
+  var stage = document.getElementById("heroStage");
+  if (!stage) return;
+  var images = stage.querySelectorAll("img");
+  if (images.length < 2) return;
+
+  var current = 0;
+  setInterval(function () {
+    var next = (current + 1) % images.length;
+    images[current].classList.remove("is-active");
+    images[next].classList.add("is-active");
+    current = next;
+  }, 5000);
+});

@@ -8,23 +8,32 @@
 <meta name='impact-site-verification' value='ddb57528-1a4f-4add-8892-82be916e0b44'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ヘッダー:ロゴ+ブランド名のみ、シンプルに -->
-<header class="site-header">
-  <div class="header-bar">
-    <a href="index.html" class="brand"><img src="assets/logo.svg" width="28" height="28" alt=""> パンダの国から</a>
+<!-- ヒーロー:写真8枚をフェード切替、ロゴ+ブランド名は左上に重ねる -->
+<section class="hero-banner">
+  <div class="hero-stage" id="heroStage">
+    <img src="assets/spots/forbidden-city.jpg" alt="故宮" class="is-active" data-index="0" loading="eager">
+    <img src="assets/spots/west-lake.jpg" alt="西湖" data-index="1" loading="lazy">
+    <img src="assets/spots/the-bund.jpg" alt="外灘" data-index="2" loading="lazy">
+    <img src="assets/spots/panda-base.jpg" alt="パンダ基地" data-index="3" loading="lazy">
+    <img src="assets/spots/terracotta-army.jpg" alt="兵馬俑" data-index="4" loading="lazy">
+    <img src="assets/spots/li-river-cruise.jpg" alt="漓江" data-index="5" loading="lazy">
+    <img src="assets/spots/zhuozheng-garden.jpg" alt="拙政園" data-index="6" loading="lazy">
+    <img src="assets/spots/lijiang-old-town.jpg" alt="麗江古城" data-index="7" loading="lazy">
   </div>
-</header>
+  <div class="hero-brand-overlay">
+    <a href="index.html" class="brand"><img src="assets/logo.svg" width="30" height="30" alt=""> パンダの国から</a>
+  </div>
+</section>
+<p class="hero-caption">言葉の壁より先に、情報の壁を越える——現地確認済みの情報だけを届けます。</p>
 
 <main>
-  <section class="wrap hero-banner">
-    <img src="assets/spots/forbidden-city.jpg" alt="故宮" loading="eager">
-    <p class="hero-caption">言葉の壁より先に、情報の壁を越える——現地確認済みの情報だけを届けます。</p>
-  </section>
-
   <section class="wrap" style="padding-top:24px;">
     <div class="home-layout">
 
