@@ -447,6 +447,16 @@ h1, h2, h3 {
 .ad-slot h4 a { color: var(--ink); }
 .ad-slot p { font-size: 0.78rem; color: var(--text-muted); margin: 0; }
 
+/* 記事本文内のPR枠(都市専用アフィリエイトリンク用、ad-slotより一回り大きい) */
+article.content .ad-slot.inline-pr {
+  margin: 2em 0;
+  padding: 18px 20px;
+}
+article.content .ad-slot.inline-pr h4 { font-size: 0.98rem; }
+article.content .ad-slot.inline-pr h4 a { color: var(--ink); }
+article.content .ad-slot.inline-pr h4 a:hover { color: var(--seal); }
+article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
+
 
 /* サイドバー:カテゴリ別リンク群(高密度) */
 .side-group {
