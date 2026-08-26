@@ -30,5 +30,5 @@ document.addEventListener("DOMContentLoaded", function () {
     images[current].classList.remove("is-active");
     images[next].classList.add("is-active");
     current = next;
-  }, 5000);
+  }, 8000);
 });
