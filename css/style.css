@@ -677,10 +677,25 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
    分类页(Category Pages)
    ========================================================================== */
 .breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   font-size: 0.82rem;
   color: var(--text-muted);
-  margin: 10px 0 2px;
+  margin: 14px 0 2px;
 }
+.breadcrumb .brand-mini {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  color: var(--ink);
+  padding-right: 10px;
+  border-right: 1px solid var(--line);
+}
+.breadcrumb .brand-mini img { flex-shrink: 0; }
 .breadcrumb a { color: var(--text-muted); }
 .breadcrumb .sep { margin: 0 6px; }
 
