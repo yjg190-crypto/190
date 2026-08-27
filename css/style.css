@@ -374,10 +374,12 @@ h1, h2, h3 {
 .hero-banner .hero-brand-overlay .brand small { color: var(--brass); }
 
 .hero-caption {
-  margin: 12px 20px 0;
   max-width: var(--container);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 12px auto 0;
+  padding: 0 20px;
+}
+.hero-caption span {
+  display: block;
   font-size: 0.95rem;
   color: var(--text-muted);
   border-left: 3px solid var(--seal);
@@ -421,6 +423,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   margin: 0 0 14px;
 }
+.tier-label a:hover { color: var(--seal); }
 
 /* 観光スポット:高密度テキストリスト(ニュースと統一感のあるデザイン) */
 .spot-list-dense {
@@ -762,6 +765,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   font-size: 0.9rem;
   font-weight: 400;
   margin: 0 0 2px;
+  line-height: 1.35;
 }
 .article-row h3 a { color: var(--ink); }
 .article-row h3 a:hover { color: var(--seal); }
@@ -843,7 +847,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   letter-spacing: 0.1em;
   margin-bottom: 6px;
 }
-.spot-card h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.spot-card h3 { font-size: 1.02rem; margin-bottom: 6px; line-height: 1.35; }
 .spot-card p { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
 
 /* ==========================================================================
@@ -1087,6 +1091,7 @@ article.content li { margin-bottom: 0.4em; }
 .related-articles li {
   padding: 5px 0;
   border-bottom: 1px dotted var(--line);
+  line-height: 1.35;
 }
 .related-articles li:last-child { border-bottom: none; }
 .related-articles a {
