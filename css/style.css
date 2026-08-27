@@ -697,6 +697,10 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   border-right: 1px solid var(--line);
 }
 .breadcrumb .brand-mini img { flex-shrink: 0; }
+.breadcrumb .current-cat {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
 .breadcrumb a { color: var(--text-muted); }
 .breadcrumb .sep { margin: 0 6px; }
 
