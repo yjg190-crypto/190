@@ -690,7 +690,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   align-items: center;
   gap: 7px;
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: clamp(1.5rem, 2.2vw, 1.8rem);
   font-weight: 700;
   color: var(--ink);
   padding-right: 10px;
@@ -969,8 +969,12 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   align-items: start;
   padding: 40px 0 80px;
 }
+.article-layout .side-col {
+  margin-top: 48px;
+}
 @media (max-width: 860px) {
   .article-layout { grid-template-columns: 1fr; }
+  .article-layout .side-col { margin-top: 0; }
 }
 
 article.content {
