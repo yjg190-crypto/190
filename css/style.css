@@ -701,6 +701,13 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   font-size: 0.98rem;
   color: var(--text-muted);
 }
+.breadcrumb .cat-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  text-transform: uppercase;
+}
+.breadcrumb .cat-link:hover { color: var(--seal); }
 .breadcrumb a { color: var(--text-muted); }
 .breadcrumb .sep { margin: 0 6px; }
 
@@ -927,14 +934,17 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   border-bottom: 1px solid var(--line);
 }
 .article-header-inline {
-  padding-bottom: 20px;
-  margin-bottom: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
 .article-header-inline h1 {
-  margin: 6px 0 10px;
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  max-width: 34ch;
+  margin: 8px 0 10px;
   color: var(--ink);
   font-family: var(--font-display);
+  line-height: 1.4;
 }
 .article-cover {
   width: 100%;
@@ -977,13 +987,17 @@ article.content {
   max-width: 68ch;
 }
 article.content h2 {
-  font-size: 1.35rem;
-  margin-top: 2.2em;
+  font-size: 1.2rem;
+  margin-top: 1.7em;
+  line-height: 1.4;
 }
 article.content h2:first-child {
   margin-top: 0;
 }
-article.content p { margin: 0 0 1.2em; }
+article.content p {
+  margin: 0 0 1em;
+  line-height: 1.65;
+}
 article.content .callout {
   background: var(--paper-raised);
   border-left: 3px solid var(--seal);
@@ -1050,25 +1064,25 @@ article.content li { margin-bottom: 0.4em; }
 
 /* 関連記事(本文末尾) */
 .related-articles {
-  margin-top: 3em;
-  padding-top: 1.6em;
+  margin-top: 1.8em;
+  padding-top: 1em;
   border-top: 1px solid var(--line);
 }
-.related-articles .tier-label { margin-bottom: 14px; }
+.related-articles .tier-label { margin-bottom: 8px; }
 .related-articles ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .related-articles li {
-  padding: 10px 0;
+  padding: 6px 0;
   border-bottom: 1px dotted var(--line);
 }
 .related-articles li:last-child { border-bottom: none; }
 .related-articles a {
   color: var(--ink);
-  font-weight: 500;
-  font-size: 0.94rem;
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 .related-articles a:hover { color: var(--seal); }
 .related-articles .cat-label {
