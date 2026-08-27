@@ -316,9 +316,9 @@ h1, h2, h3 {
    页脚
    ========================================================================== */
 .site-footer {
-  margin-top: 80px;
+  margin-top: 32px;
   border-top: 1px solid var(--line);
-  padding: 40px 0;
+  padding: 32px 0;
   color: var(--text-muted);
   font-size: 0.85rem;
 }
@@ -396,7 +396,7 @@ h1, h2, h3 {
   grid-template-columns: 1fr 1fr 260px;
   gap: 32px;
   align-items: start;
-  margin: 8px 0 60px;
+  margin: 8px 0 24px;
 }
 @media (max-width: 1080px) {
   .home-layout { grid-template-columns: 1fr 1fr; }
@@ -865,6 +865,9 @@ article.content {
 article.content h2 {
   font-size: 1.35rem;
   margin-top: 2.2em;
+}
+article.content h2:first-child {
+  margin-top: 0;
 }
 article.content p { margin: 0 0 1.2em; }
 article.content .callout {
