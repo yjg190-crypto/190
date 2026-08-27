@@ -715,7 +715,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 .breadcrumb .sep { margin: 0 6px; }
 
 .category-header {
-  padding: 4px 0 16px;
+  padding: 4px 0 8px;
   margin-bottom: 0;
 }
 .sr-only {
@@ -731,7 +731,6 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 }
 .category-header p {
   color: var(--text-muted);
-  max-width: 60ch;
   font-size: 0.88rem;
   margin: 0;
 }
@@ -739,7 +738,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 .article-list {
   display: grid;
   gap: 0;
-  margin: 8px 0 32px;
+  margin: 4px 0 32px;
   border-top: 1px dotted var(--line);
 }
 
@@ -773,7 +772,6 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   font-size: 0.78rem;
   color: var(--text-muted);
   margin: 0;
-  max-width: 62ch;
   line-height: 1.4;
 }
 
@@ -826,7 +824,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
-  margin: 36px 0 60px;
+  margin: 8px 0 60px;
 }
 .spot-card {
   border: 1px solid var(--line);
@@ -886,7 +884,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
    ニュース・コラム(新闻列表,时间倒序)
    ========================================================================== */
 .news-list {
-  margin: 20px 0 40px;
+  margin: 8px 0 40px;
   border-top: 1px solid var(--line);
 }
 .news-item {
