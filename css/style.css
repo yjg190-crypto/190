@@ -1074,18 +1074,18 @@ article.content li { margin-bottom: 0.4em; }
 
 /* 関連記事(本文末尾) */
 .related-articles {
-  margin-top: 1.8em;
-  padding-top: 1em;
+  margin-top: 1.2em;
+  padding-top: 0.7em;
   border-top: 1px solid var(--line);
 }
-.related-articles .tier-label { margin-bottom: 8px; }
+.related-articles .tier-label { margin-bottom: 6px; }
 .related-articles ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .related-articles li {
-  padding: 6px 0;
+  padding: 5px 0;
   border-bottom: 1px dotted var(--line);
 }
 .related-articles li:last-child { border-bottom: none; }
