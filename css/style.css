@@ -715,7 +715,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 .breadcrumb .sep { margin: 0 6px; }
 
 .category-header {
-  padding: 4px 0 8px;
+  padding: 4px 0 14px;
   margin-bottom: 0;
 }
 .sr-only {
@@ -732,13 +732,18 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 .category-header p {
   color: var(--text-muted);
   font-size: 0.88rem;
+  line-height: 1.6;
   margin: 0;
+  max-width: 42em;
+  background: var(--paper-raised);
+  padding: 12px 16px;
+  border-radius: var(--radius);
 }
 
 .article-list {
   display: grid;
   gap: 0;
-  margin: 4px 0 32px;
+  margin: 14px 0 32px;
   border-top: 1px dotted var(--line);
 }
 
@@ -824,7 +829,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
-  margin: 8px 0 60px;
+  margin: 14px 0 60px;
 }
 .spot-card {
   border: 1px solid var(--line);
@@ -884,7 +889,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
    ニュース・コラム(新闻列表,时间倒序)
    ========================================================================== */
 .news-list {
-  margin: 8px 0 40px;
+  margin: 14px 0 40px;
   border-top: 1px solid var(--line);
 }
 .news-item {
@@ -984,7 +989,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   grid-template-columns: 1fr 260px;
   gap: 48px;
   align-items: start;
-  padding: 40px 0 80px;
+  padding: 24px 0 80px;
 }
 .article-layout .side-col {
   margin-top: 48px;
