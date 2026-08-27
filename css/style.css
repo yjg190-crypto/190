@@ -525,13 +525,13 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 
 /* サイドバー:カテゴリ別リンク群(高密度) */
 .side-group {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .side-group-head {
   display: flex;
   align-items: center;
   gap: 7px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .side-dot {
   width: 7px;
