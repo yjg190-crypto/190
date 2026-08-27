@@ -12,8 +12,8 @@
   --text-muted: #6b5f4f; /* 次要文字 */
   --line: rgba(42, 33, 24, 0.16); /* 分隔线 */
 
-  --font-display: "Noto Serif JP", "Shippori Mincho", serif;
-  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-display: "Inter", "Shippori Mincho", "Noto Serif JP", serif;
+  --font-body: "Inter", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
 
   --radius: 2px;
   --container: 1080px;
@@ -309,7 +309,7 @@ h1, h2, h3 {
 }
 .card .read-more {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -932,7 +932,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   text-align: right;
   margin-top: -8px;
 }
-.section-more a { font-size: 0.88rem; font-weight: 600; }
+.section-more a { font-size: 0.88rem; font-weight: 500; }
 
 /* ==========================================================================
    文章页(左寄せ本文 + 右サイドバー)
@@ -947,12 +947,13 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   border-bottom: 1px solid var(--line);
 }
 .article-header-inline h1 {
-  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 500;
   max-width: 34ch;
   margin: 8px 0 10px;
   color: var(--ink);
   font-family: var(--font-display);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .article-cover {
   width: 100%;
@@ -973,7 +974,7 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 }
 .article-meta .updated {
   color: var(--brass);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .article-layout {
@@ -995,16 +996,17 @@ article.content {
   max-width: 68ch;
 }
 article.content h2 {
-  font-size: 1.2rem;
-  margin-top: 1.7em;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1.6em;
   line-height: 1.4;
 }
 article.content h2:first-child {
   margin-top: 0;
 }
 article.content p {
-  margin: 0 0 1em;
-  line-height: 1.65;
+  margin: 0 0 0.9em;
+  line-height: 1.6;
 }
 article.content .callout {
   background: var(--paper-raised);
@@ -1023,7 +1025,7 @@ article.content .related-report {
   margin: 2em 0;
 }
 article.content .related-report .rr-label {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink);
   margin: 0 0 8px;
 }
@@ -1037,11 +1039,11 @@ article.content .related-report .rr-source a { color: var(--text-muted); }
 article.content .related-report .rr-source a:hover { color: var(--seal); }
 article.content ul { margin: 0 0 1.2em; padding-left: 1.4em; }
 article.content .source-list {
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.74rem;
+  line-height: 1.4;
   color: var(--text-muted);
 }
-article.content .source-list li { margin-bottom: 0.15em; }
+article.content .source-list li { margin-bottom: 0.1em; }
 article.content .source-list a { color: var(--text-muted); }
 article.content .source-list a:hover { color: var(--seal); }
 article.content table {
@@ -1058,7 +1060,7 @@ article.content th, article.content td {
 article.content th {
   background: var(--paper-raised);
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 500;
 }
 article.content .check-list { list-style: none; padding-left: 0; }
 article.content .check-list li { padding-left: 1.6em; position: relative; }
