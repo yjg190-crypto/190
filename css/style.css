@@ -688,9 +688,10 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 .breadcrumb .brand-mini {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--ink);
   padding-right: 10px;
   border-right: 1px solid var(--line);
@@ -701,6 +702,8 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 
 .category-header {
   padding: 4px 0 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
 }
 .category-header h1 {
   font-size: clamp(1.3rem, 2vw, 1.6rem);
@@ -926,6 +929,16 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
 .article-header {
   padding: 48px 0 32px;
   border-bottom: 1px solid var(--line);
+}
+.article-header-inline {
+  padding-bottom: 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.article-header-inline h1 {
+  margin: 6px 0 10px;
+  color: var(--ink);
+  font-family: var(--font-display);
 }
 .article-cover {
   width: 100%;
