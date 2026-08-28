@@ -329,6 +329,7 @@ h1, h2, h3 {
   gap: 20px;
 }
 .footer-grid a { color: var(--text-muted); }
+.footer-grid a:hover { color: var(--seal); }
 
 /* ==========================================================================
    ホーム — ヒーロー画像バナー(ロゴ重ね+複数画像フェード切替)
@@ -696,8 +697,15 @@ article.content .ad-slot.inline-pr p { font-size: 0.85rem; }
   font-size: clamp(1.5rem, 2.2vw, 1.8rem);
   font-weight: 700;
   color: var(--ink);
-  padding-right: 10px;
-  border-right: 1px solid var(--line);
+  margin-right: 8px;
+}
+.breadcrumb .brand-mini::after {
+  content: "/";
+  margin-left: 10px;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: var(--font-body);
 }
 .breadcrumb .brand-mini img { flex-shrink: 0; }
 .breadcrumb .current-cat {
