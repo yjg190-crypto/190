@@ -1124,6 +1124,29 @@ article.content th {
   color: var(--ink);
   font-weight: 500;
 }
+article.content .company-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--paper);
+  font-size: 0.74rem;
+  font-weight: 700;
+  margin-right: 8px;
+  flex-shrink: 0;
+  vertical-align: middle;
+  font-family: var(--font-body);
+}
+.badge-c1 { background: #B23A2E; }
+.badge-c2 { background: #2C5F8A; }
+.badge-c3 { background: #E8720C; }
+.badge-c4 { background: #6B4C9A; }
+.badge-c5 { background: #1C2B39; }
+.badge-c6 { background: #2E7D5B; }
+.badge-c7 { background: #B98D3E; }
+
 article.content .check-list { list-style: none; padding-left: 0; }
 article.content .check-list li { padding-left: 1.6em; position: relative; }
 article.content .check-list li::before {
