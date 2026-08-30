@@ -318,7 +318,7 @@ h1, h2, h3 {
 .site-footer {
   margin-top: 32px;
   border-top: 1px solid var(--line);
-  padding: 32px 0;
+  padding: 18px 0;
   color: var(--text-muted);
   font-size: 0.85rem;
 }
@@ -540,6 +540,16 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 
 
 /* サイドバー:カテゴリ別リンク群(高密度) */
+.side-all-link {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0 0 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.side-all-link:hover { color: var(--seal); }
 .side-group {
   margin-bottom: 10px;
 }
@@ -1120,6 +1130,43 @@ article.content .source-list {
 article.content .source-list li { margin-bottom: 0.1em; }
 article.content .source-list a { color: var(--text-muted); }
 article.content .source-list a:hover { color: var(--seal); }
+
+/* 全記事一覧ページ */
+.all-articles-group {
+  margin: 0 0 32px;
+}
+.all-articles-group h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.all-articles-group h2 a { color: var(--ink); }
+.all-articles-group h2 a:hover { color: var(--seal); }
+.all-articles-group h2 .count {
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.all-articles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 32px;
+}
+.all-articles-list li {
+  padding: 4px 0;
+  break-inside: avoid;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.all-articles-list a { color: var(--ink); }
+.all-articles-list a:hover { color: var(--seal); }
+@media (max-width: 700px) {
+  .all-articles-list { columns: 1; }
+}
 article.content table {
   width: 100%;
   border-collapse: collapse;
