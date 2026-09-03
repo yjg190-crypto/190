@@ -32,3 +32,37 @@ document.addEventListener("DOMContentLoaded", function () {
     current = next;
   }, 8000);
 });
+
+// 記事下部のSNSシェアボタン
+document.addEventListener("DOMContentLoaded", function () {
+  var shareBox = document.querySelector(".share-buttons");
+  if (!shareBox) return;
+
+  var pageUrl = encodeURIComponent(window.location.href);
+  var pageTitle = encodeURIComponent(document.title);
+
+  var xBtn = shareBox.querySelector('[data-share="x"]');
+  if (xBtn) xBtn.href = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + pageTitle;
+
+  var lineBtn = shareBox.querySelector('[data-share="line"]');
+  if (lineBtn) lineBtn.href = "https://social-plugins.line.me/lineit/share?url=" + pageUrl;
+
+  var fbBtn = shareBox.querySelector('[data-share="fb"]');
+  if (fbBtn) fbBtn.href = "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
+
+  var copyBtn = shareBox.querySelector('[data-share="copy"]');
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        var original = copyBtn.textContent;
+        copyBtn.textContent = "コピーしました";
+        copyBtn.classList.add("is-copied");
+        setTimeout(function () {
+          copyBtn.textContent = original;
+          copyBtn.classList.remove("is-copied");
+        }, 2000);
+      });
+    });
+  }
+});

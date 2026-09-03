@@ -540,6 +540,47 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 
 
 /* サイドバー:カテゴリ別リンク群(高密度) */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2em 0 0.5em;
+  padding-top: 1.2em;
+  border-top: 1px solid var(--line);
+}
+.share-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 15px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.share-btn:hover {
+  background: var(--seal);
+  color: var(--paper);
+  border-color: var(--seal);
+}
+.share-btn.is-copied {
+  background: var(--brass);
+  color: var(--paper);
+  border-color: var(--brass);
+}
+
 .side-all-link {
   display: block;
   font-size: 0.86rem;
