@@ -581,6 +581,40 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   border-color: var(--brass);
 }
 
+/* SNSごとのブランドカラー */
+.share-btn[data-share="x"] {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+.share-btn[data-share="x"]:hover {
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+}
+.share-btn[data-share="line"] {
+  background: #06c755;
+  color: #ffffff;
+  border-color: #06c755;
+}
+.share-btn[data-share="line"]:hover {
+  background: #05a648;
+  border-color: #05a648;
+}
+.share-btn[data-share="fb"] {
+  background: #1877f2;
+  color: #ffffff;
+  border-color: #1877f2;
+}
+.share-btn[data-share="fb"]:hover {
+  background: #1462cc;
+  border-color: #1462cc;
+}
+.share-btn[data-share="copy"]:hover {
+  background: var(--seal);
+  color: var(--paper);
+  border-color: var(--seal);
+}
+
 .side-all-link {
   display: block;
   font-size: 0.86rem;
