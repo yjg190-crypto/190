@@ -822,7 +822,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   color: var(--brass);
   text-transform: uppercase;
 }
-.breadcrumb .cat-link:hover { color: var(--seal); }
+.breadcrumb a.cat-link:hover { color: var(--seal); }
 .breadcrumb a { color: var(--text-muted); }
 .breadcrumb .sep { margin: 0 6px; }
 
