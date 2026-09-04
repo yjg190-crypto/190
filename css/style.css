@@ -12,8 +12,8 @@
   --text-muted: #6b5f4f; /* 次要文字 */
   --line: rgba(42, 33, 24, 0.16); /* 分隔线 */
 
-  --font-display: "Inter", "Shippori Mincho", "Noto Serif JP", serif;
-  --font-body: "Inter", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-display: "Lora", "Shippori Mincho", "Noto Serif JP", serif;
+  --font-body: "Lora", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
 
   --radius: 2px;
   --container: 1080px;
