@@ -386,6 +386,13 @@ h1, h2, h3 {
   border-left: 3px solid var(--seal);
   padding-left: 14px;
 }
+.hero-caption a {
+  color: inherit;
+  text-decoration: none;
+}
+.hero-caption a:hover {
+  color: var(--seal);
+}
 @media (max-width: 640px) {
   .hero-banner .hero-stage { aspect-ratio: 4 / 3; }
   .hero-banner .hero-brand-overlay { padding: 14px 16px 28px; }
