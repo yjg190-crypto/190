@@ -656,6 +656,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   font-weight: 500;
 }
 .side-group-head h3 a { color: var(--ink); }
+.side-group-head h3 .cat-link-plain { color: var(--ink); }
 .side-links {
   list-style: none;
   margin: 0;
@@ -1120,6 +1121,12 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 }
 .article-layout .side-col {
   margin-top: 48px;
+}
+@media (min-width: 861px) {
+  .article-layout .side-col {
+    position: sticky;
+    top: 20px;
+  }
 }
 @media (max-width: 860px) {
   .article-layout { grid-template-columns: 1fr; }
