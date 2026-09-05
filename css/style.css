@@ -1115,7 +1115,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 .article-layout {
   display: grid;
   grid-template-columns: 1fr 260px;
-  gap: 48px;
+  gap: 32px;
   align-items: start;
   padding: 24px 0 40px;
 }
