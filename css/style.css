@@ -499,7 +499,7 @@ h1, h2, h3 {
   white-space: nowrap;
   font-size: 0.68rem;
   color: var(--brass);
-  min-width: 34px;
+  width: 34px;
   letter-spacing: normal;
 }
 .news-dense .news-item a {
@@ -515,12 +515,11 @@ h1, h2, h3 {
 .news-dense .news-item a:hover { color: var(--seal); }
 .news-dense .news-item.is-pinned .news-pin-badge {
   flex-shrink: 0;
-  white-space: nowrap;
-  min-width: 34px;
-  font-size: 0.62rem;
+  width: 34px;
+  text-align: center;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--seal);
-  letter-spacing: normal;
 }
 
 /* 広告・おすすめ枠(サイドバー最下部) */
@@ -1031,7 +1030,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   color: var(--brass);
   flex-shrink: 0;
   white-space: nowrap;
-  min-width: 62px;
+  width: 62px;
 }
 .news-item .news-tag {
   font-size: 0.68rem;
@@ -1059,12 +1058,12 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 }
 .news-item a:hover { color: var(--seal); }
 .news-item .news-pin-badge {
-  font-size: 0.62rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--seal);
   flex-shrink: 0;
-  white-space: nowrap;
-  min-width: 62px;
+  width: 62px;
+  text-align: center;
 }
 
 /* ==========================================================================
