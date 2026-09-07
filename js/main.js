@@ -17,6 +17,40 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// 記事内画像:クリックで拡大表示(ライトボックス)
+document.addEventListener("DOMContentLoaded", function () {
+  var contentImgs = Array.prototype.filter.call(
+    document.querySelectorAll("article.content img"),
+    function (img) { return !img.closest("a"); }
+  );
+  if (!contentImgs.length) return;
+
+  var overlay = document.createElement("div");
+  overlay.className = "img-lightbox";
+  overlay.hidden = true;
+  var overlayImg = document.createElement("img");
+  overlay.appendChild(overlayImg);
+  document.body.appendChild(overlay);
+
+  function closeLightbox() {
+    overlay.hidden = true;
+    overlayImg.src = "";
+  }
+
+  overlay.addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  contentImgs.forEach(function (img) {
+    img.addEventListener("click", function () {
+      overlayImg.src = img.currentSrc || img.src;
+      overlayImg.alt = img.alt || "";
+      overlay.hidden = false;
+    });
+  });
+});
+
 // ホーム:ヒーロー画像を数秒ごとにフェード切替
 document.addEventListener("DOMContentLoaded", function () {
   var stage = document.getElementById("heroStage");

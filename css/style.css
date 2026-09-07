@@ -1116,6 +1116,29 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   font-weight: 500;
 }
 
+/* 記事内画像:クリックで拡大表示(ライトボックス、リンク内の画像は対象外) */
+article.content img:not(a img) {
+  cursor: zoom-in;
+}
+.img-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  cursor: zoom-out;
+}
+.img-lightbox[hidden] { display: none; }
+.img-lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+  cursor: zoom-out;
+}
+
 .article-layout {
   display: grid;
   grid-template-columns: 1fr 260px;
