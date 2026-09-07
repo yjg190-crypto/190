@@ -408,6 +408,10 @@ h1, h2, h3 {
   align-items: start;
   margin: 8px 0 24px;
 }
+.home-layout > .main-col,
+.home-layout > .side-col {
+  min-width: 0;
+}
 @media (max-width: 1080px) {
   .home-layout { grid-template-columns: 1fr 1fr; }
   .home-layout .side-col { grid-column: 1 / -1; }
