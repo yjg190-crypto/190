@@ -823,6 +823,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   font-weight: 400;
   font-size: 1rem;
   font-family: var(--font-body);
+  text-decoration: none;
 }
 .breadcrumb .brand-mini img { flex-shrink: 0; }
 .breadcrumb .current-cat {
