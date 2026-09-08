@@ -338,7 +338,13 @@
   </url>
   <url>
     <loc>https://panndano.com/articles/passport-loss</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://panndano.com/articles/theft-police-report</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -470,7 +476,7 @@
   </url>
   <url>
     <loc>https://panndano.com/articles/travel-scams</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
