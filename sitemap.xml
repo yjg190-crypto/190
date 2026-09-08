@@ -260,7 +260,13 @@
   </url>
   <url>
     <loc>https://panndano.com/articles/hotel-guide</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://panndano.com/articles/residence-registration-online</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
