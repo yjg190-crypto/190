@@ -139,6 +139,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://panndano.com/articles/kunming-city-guide</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://panndano.com/articles/chengdu-food-guide</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
