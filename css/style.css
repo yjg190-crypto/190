@@ -328,6 +328,19 @@ h1, h2, h3 {
   justify-content: space-between;
   gap: 20px;
 }
+/* トップページのみ、上部.home-layoutの3列(観光ガイド/ニュース/サイドバー)と縦位置を揃える */
+.footer-grid-home {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr 260px;
+  gap: 32px;
+}
+@media (max-width: 1080px) {
+  .footer-grid-home { grid-template-columns: 1fr 1fr; }
+  .footer-grid-home > :last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .footer-grid-home { grid-template-columns: 1fr; }
+}
 .footer-grid a { color: var(--text-muted); }
 .footer-grid a:hover { color: var(--seal); }
 
