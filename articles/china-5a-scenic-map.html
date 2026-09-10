@@ -234,9 +234,9 @@ svg.mapsvg.dragging { cursor: grabbing; }
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
-  width: 190px;
-  padding: 9px 11px;
+  gap: 5px;
+  width: 210px;
+  padding: 8px 11px;
   background: var(--panel-bg);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -246,9 +246,9 @@ svg.mapsvg.dragging { cursor: grabbing; }
   text-align: right;
   pointer-events: none;
 }
-.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-row { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 4px 10px; }
+.legend-item { display: flex; align-items: center; gap: 5px; }
 .legend-dot { border-radius: 50%; background: var(--seal); display: inline-block; }
-.legend-swatch { width: 14px; height: 10px; border: 1px solid var(--ink); border-radius: 2px; }
 .tooltip {
   position: absolute;
   pointer-events: none;
@@ -387,12 +387,12 @@ footer.note {
         <button class="zoom-btn" id="fullscreenBtn" type="button" aria-label="全画面表示" style="font-size:0.85rem;">⛶</button>
       </div>
       <div class="legend">
-        <span style="color:var(--text)">凡例:</span>
-        <div class="legend-item"><span class="legend-dot" style="width:7px;height:7px;"></span>1景区</div>
-        <div class="legend-item"><span class="legend-dot" style="width:12px;height:12px;"></span>5景区</div>
-        <div class="legend-item"><span class="legend-dot" style="width:17px;height:17px;"></span>10景区以上</div>
-        <div class="legend-item"><span class="legend-swatch" style="background:var(--paper)"></span>中国</div>
-        <div class="legend-item"><span class="legend-swatch" style="background:var(--land-jp)"></span>日本(位置の目安)</div>
+        <div class="legend-row">
+          <span style="color:var(--text)">凡例:</span>
+          <div class="legend-item"><span class="legend-dot" style="width:7px;height:7px;"></span>1景区</div>
+          <div class="legend-item"><span class="legend-dot" style="width:12px;height:12px;"></span>5景区</div>
+          <div class="legend-item"><span class="legend-dot" style="width:17px;height:17px;"></span>10景区以上</div>
+        </div>
         <span class="zoom-hint">点が密集している場所は、スクロール(またはピンチ)で拡大、ドラッグで移動できます</span>
       </div>
     </div>
