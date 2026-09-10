@@ -88,7 +88,6 @@
 .layout > .panel {
   flex: 1 1 240px;
   min-width: 220px;
-  max-width: 480px;
 }
 .layout.fullscreen {
   position: fixed;
@@ -113,7 +112,6 @@
   width: 100%;
   height: 100%;
 }
-.layout.fullscreen .legend { display: none; }
 .layout.fullscreen > .panel {
   flex: 0 0 300px;
   max-width: 300px;
@@ -229,15 +227,24 @@ svg.mapsvg.dragging { cursor: grabbing; }
 }
 .city-label.visible { opacity: 1; pointer-events: all; }
 .legend {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
   display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  flex-basis: 100%;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  font-size: 0.76rem;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  width: 190px;
+  padding: 9px 11px;
+  background: var(--panel-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.68rem;
+  line-height: 1.4;
   color: var(--text-muted);
+  text-align: right;
+  pointer-events: none;
 }
 .legend-item { display: flex; align-items: center; gap: 6px; }
 .legend-dot { border-radius: 50%; background: var(--seal); display: inline-block; }
@@ -379,21 +386,20 @@ footer.note {
         <button class="zoom-btn" id="zoomReset" type="button" aria-label="全体表示" style="font-size:0.65rem;">全体</button>
         <button class="zoom-btn" id="fullscreenBtn" type="button" aria-label="全画面表示" style="font-size:0.85rem;">⛶</button>
       </div>
+      <div class="legend">
+        <span style="color:var(--text)">凡例:</span>
+        <div class="legend-item"><span class="legend-dot" style="width:7px;height:7px;"></span>1景区</div>
+        <div class="legend-item"><span class="legend-dot" style="width:12px;height:12px;"></span>5景区</div>
+        <div class="legend-item"><span class="legend-dot" style="width:17px;height:17px;"></span>10景区以上</div>
+        <div class="legend-item"><span class="legend-swatch" style="background:var(--paper)"></span>中国</div>
+        <div class="legend-item"><span class="legend-swatch" style="background:var(--land-jp)"></span>日本(位置の目安)</div>
+        <span class="zoom-hint">点が密集している場所は、スクロール(またはピンチ)で拡大、ドラッグで移動できます</span>
+      </div>
     </div>
 
     <aside class="panel" id="panel">
       <div class="empty"><strong>都市を選んでください</strong><br>地図上の赤い点をクリックすると、その都市にある5A景区の一覧がここに表示されます。</div>
     </aside>
-
-    <div class="legend">
-      <span style="color:var(--text)">凡例:</span>
-      <div class="legend-item"><span class="legend-dot" style="width:7px;height:7px;"></span>1景区</div>
-      <div class="legend-item"><span class="legend-dot" style="width:12px;height:12px;"></span>5景区</div>
-      <div class="legend-item"><span class="legend-dot" style="width:17px;height:17px;"></span>10景区以上</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:var(--paper)"></span>中国</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:var(--land-jp)"></span>日本(位置の目安)</div>
-      <span class="zoom-hint">点が密集している場所は、スクロール(またはピンチ)で拡大、ドラッグで移動できます</span>
-    </div>
   </div>
 
   <footer class="note">
