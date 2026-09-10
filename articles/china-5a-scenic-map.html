@@ -566,6 +566,30 @@ function isDarkMode() {
 }
 const SEAL_LIGHT = [178, 58, 46];
 const SEAL_DARK = [224, 122, 99];
+const PAPER_LIGHT = [241, 236, 225];
+const PAPER_DARK = [27, 23, 18];
+function mixRGB(a, b, t) {
+  return [0, 1, 2].map(function(i) {
+    return Math.max(0, Math.min(255, Math.round(a[i] + (b[i] - a[i]) * t)));
+  });
+}
+function rgbStr(c) { return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")"; }
+function cityColorRamp() {
+  const seal = isDarkMode() ? SEAL_DARK : SEAL_LIGHT;
+  const paper = isDarkMode() ? PAPER_DARK : PAPER_LIGHT;
+  return [
+    rgbStr(mixRGB(seal, paper, 0.55)),
+    rgbStr(mixRGB(seal, paper, 0.25)),
+    rgbStr(seal),
+    rgbStr(mixRGB(seal, paper, -0.3))
+  ];
+}
+function cityColorTier(count) {
+  if (count >= 7) return 3;
+  if (count >= 4) return 2;
+  if (count >= 2) return 1;
+  return 0;
+}
 const maxProvinceCount = Math.max.apply(null, provinceFillEls.map(function(el) {
   return PROVINCE_TOTALS[el.getAttribute("data-name")] || 0;
 }).concat([1]));
@@ -824,13 +848,8 @@ svg.addEventListener("pointerdown", function(evt) {
 function hideTip() { tooltip.classList.remove("show"); }
 function positionTooltipIfActive() {}
 
-function cityDotOpacity(count) {
-  if (count >= 7) return 1;
-  if (count >= 4) return 0.85;
-  if (count >= 2) return 0.65;
-  return 0.45;
-}
 const CITY_LOOKUP = {};
+const cityDotEls = [];
 CITIES.forEach(function(c) {
   const screenR = radiusFor(c.count);
   const hit = document.createElementNS(svgNS, "circle");
@@ -842,7 +861,7 @@ CITIES.forEach(function(c) {
   dot.setAttribute("cx", c.x);
   dot.setAttribute("cy", c.y);
   dot.setAttribute("class", "dot");
-  dot.setAttribute("fill-opacity", cityDotOpacity(c.count));
+  cityDotEls.push({ el: dot, tier: cityColorTier(c.count) });
 
   const label = document.createElementNS(svgNS, "text");
   label.setAttribute("class", "city-label");
@@ -898,6 +917,15 @@ CITIES.forEach(function(c) {
 });
 
 const cityPriority = dotObjects.slice().sort(function(a, b) { return b.count - a.count; });
+
+function paintCityDots() {
+  const ramp = cityColorRamp();
+  cityDotEls.forEach(function(o) { o.el.style.fill = ramp[o.tier]; });
+}
+paintCityDots();
+if (window.matchMedia) {
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paintCityDots);
+}
 
 updateDotSizes();
 window.addEventListener("resize", updateDotSizes);
