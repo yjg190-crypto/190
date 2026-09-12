@@ -265,6 +265,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://panndano.com/articles/china-tech-frontier</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://panndano.com/articles/china-power-plug</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
