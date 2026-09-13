@@ -1204,6 +1204,25 @@ article.content p {
   margin: 0 0 0.9em;
   line-height: 1.6;
 }
+article.content h2.faq-q {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+article.content h2.faq-q .faq-q-num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--seal);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+}
 article.content .callout {
   background: var(--paper-raised);
   border-left: 3px solid var(--seal);
