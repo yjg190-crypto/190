@@ -1,0 +1,114 @@
+/* パンダマスコット(全ページ共通、js/panda-mascot.jsがDOMを生成) */
+.panda-mascot {
+  --pm-ink: #2b2622;
+  --pm-white: #fdfcf8;
+  --pm-accent: #b23a2e;
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  width: 92px;
+  z-index: 70;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.panda-mascot[hidden] { display: none; }
+.panda-mascot.is-leaving { opacity: 0; transform: translateY(8px) scale(0.9); pointer-events: none; }
+
+.panda-mascot-close {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(43,38,34,0.15);
+  background: #fdfcf8;
+  color: #6b6259;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity .15s ease, transform .15s ease;
+}
+.panda-mascot:hover .panda-mascot-close,
+.panda-mascot-close:focus-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.panda-mascot-close:hover { border-color: #b23a2e; color: #b23a2e; }
+
+.panda-mascot-svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.panda-mascot-speech {
+  position: absolute;
+  bottom: 100%;
+  right: 4px;
+  margin-bottom: 8px;
+  background: #fdfcf8;
+  border: 1px solid rgba(43,38,34,0.15);
+  border-radius: 12px;
+  padding: 5px 11px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  color: #2b2622;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px) scale(0.85);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+}
+.panda-mascot-speech::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: -5px;
+  width: 9px; height: 9px;
+  background: #fdfcf8;
+  border-right: 1px solid rgba(43,38,34,0.15);
+  border-bottom: 1px solid rgba(43,38,34,0.15);
+  transform: rotate(45deg);
+}
+.panda-mascot.show-speech .panda-mascot-speech { opacity: 1; transform: translateY(0) scale(1); }
+
+.pm-bob { transform-origin: 120px 214px; animation: pm-breathe 2.6s ease-in-out infinite; }
+@keyframes pm-breathe {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(-3px) scaleY(1.015); }
+}
+.pm-eyes-open { animation: pm-blink 4.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes pm-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.1); }
+}
+.pm-eyes-closed { display: none; }
+
+.pm-arm-l { transform-origin: 80px 160px; }
+.pm-arm-r { transform-origin: 160px 160px; }
+
+.is-waving .pm-arm-r { animation: pm-wave 0.55s ease-in-out 3; }
+@keyframes pm-wave {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(-52deg); }
+}
+.is-stretching .pm-arm-l { animation: pm-stretch-l .9s ease-out forwards; }
+.is-stretching .pm-arm-r { animation: pm-stretch-r .9s ease-out forwards; }
+.is-stretching .pm-bob { animation: pm-stretch-body 1.6s ease-in-out; }
+@keyframes pm-stretch-l { to { transform: rotate(150deg); } }
+@keyframes pm-stretch-r { to { transform: rotate(-150deg); } }
+@keyframes pm-stretch-body {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  40% { transform: scaleY(1.08) translateY(-6px); }
+}
+
+@media (max-width: 480px) {
+  .panda-mascot { width: 68px; right: 10px; bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pm-bob, .pm-eyes-open { animation: none !important; }
+}
