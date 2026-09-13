@@ -1205,12 +1205,13 @@ article.content p {
   line-height: 1.6;
 }
 article.content h2.faq-q {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  padding-left: 36px;
 }
 article.content h2.faq-q .faq-q-num {
-  flex: none;
+  position: absolute;
+  left: 0;
+  top: 0.15em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
