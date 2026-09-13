@@ -112,7 +112,7 @@
     });
 
     function scheduleAmbient() {
-      var delay = 40000 + Math.random() * 30000;
+      var delay = 10000 + Math.random() * 5000;
       window.setTimeout(function () {
         var pick = AMBIENT[Math.floor(Math.random() * AMBIENT.length)];
         play(pick.action, pick.text, 1700);
