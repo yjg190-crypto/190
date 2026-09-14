@@ -30,14 +30,21 @@
         '<circle cx="78.7" cy="58.7" r="21.4" fill="#1C2B39" transform="rotate(-12 78.7 58.7)"/>' +
         '<circle cx="161.3" cy="52.6" r="21.4" fill="#1C2B39" transform="rotate(18 161.3 52.6)"/>' +
         '<ellipse cx="120" cy="113.8" rx="55.1" ry="49" fill="#F1ECE1" stroke="#1C2B39" stroke-width="4" transform="rotate(-4 120 113.8)"/>' +
-        '<ellipse cx="89.4" cy="107.7" rx="18.4" ry="23" fill="#1C2B39" transform="rotate(-25 89.4 107.7)"/>' +
-        '<ellipse cx="152.2" cy="101.5" rx="18.4" ry="15.3" fill="#1C2B39" transform="rotate(8 152.2 101.5)"/>' +
-        '<path d="M143,100 Q153.7,95.4 161.3,101.5" fill="none" stroke="#1C2B39" stroke-width="3.5" stroke-linecap="round"/>' +
+        '<ellipse cx="89" cy="105" rx="19" ry="22" fill="#1C2B39" transform="rotate(-15 89 105)"/>' +
+        '<ellipse cx="151" cy="105" rx="19" ry="22" fill="#1C2B39" transform="rotate(15 151 105)"/>' +
         '<g class="pm-eyes-open">' +
-          '<circle cx="92.5" cy="104.6" r="6.1" fill="#F1ECE1"/>' +
+          '<circle cx="89" cy="104" r="11" fill="#FFFFFF"/>' +
+          '<circle cx="151" cy="104" r="11" fill="#FFFFFF"/>' +
+          '<circle cx="89" cy="105" r="6.3" fill="#57934A"/>' +
+          '<circle cx="151" cy="105" r="6.3" fill="#57934A"/>' +
+          '<circle cx="89" cy="105" r="2.8" fill="#1C2B39"/>' +
+          '<circle cx="151" cy="105" r="2.8" fill="#1C2B39"/>' +
+          '<circle cx="86.5" cy="101.5" r="1.4" fill="#FFFFFF"/>' +
+          '<circle cx="148.5" cy="101.5" r="1.4" fill="#FFFFFF"/>' +
         '</g>' +
         '<g class="pm-eyes-closed">' +
-          '<path d="M80,107 Q89.4,100 99,107" stroke="#1C2B39" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+          '<path d="M79,105 Q89,98 99,105" stroke="#1C2B39" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+          '<path d="M141,105 Q151,98 161,105" stroke="#1C2B39" stroke-width="3" fill="none" stroke-linecap="round"/>' +
         '</g>' +
         '<ellipse cx="121.6" cy="129.1" rx="9.2" ry="6.9" fill="#1C2B39"/>' +
         '<path d="M110.9,147.4 Q121.6,159.7 135.3,145.9" fill="none" stroke="#1C2B39" stroke-width="3.5" stroke-linecap="round"/>' +
