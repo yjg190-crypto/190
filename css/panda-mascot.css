@@ -76,7 +76,7 @@
 }
 .panda-mascot.show-speech .panda-mascot-speech { opacity: 1; transform: translateY(0) scale(1); }
 
-.pm-bob { transform-origin: 120px 214px; animation: pm-breathe 2.6s ease-in-out infinite; }
+.pm-bob { transform-origin: 120px 224px; animation: pm-breathe 2.6s ease-in-out infinite; }
 @keyframes pm-breathe {
   0%, 100% { transform: translateY(0) scaleY(1); }
   50% { transform: translateY(-3px) scaleY(1.015); }
@@ -88,19 +88,39 @@
 }
 .pm-eyes-closed { display: none; }
 
-.pm-arm-l { transform-origin: 80px 160px; }
-.pm-arm-r { transform-origin: 160px 160px; }
+/* 挨拶(クリック/自動挨拶)のあいだだけウインク+口を開ける。
+   待機中の表情はあくまで左右対称の自然な顔のままにしておく */
+.pm-wink { display: none; }
+.is-waving .pm-wink { display: block; }
+.is-waving .pm-eye-l { display: none; }
+.pm-mouth-open { display: none; }
+.is-waving .pm-mouth-open { display: block; }
+.is-waving .pm-mouth-closed { display: none; }
+
+/* 耳のわずかな動き(表情を作らずに生き生きと見せるため)。
+   付け根(頭に隠れている側)を軸に回すので transform-origin は viewBox 座標で指定 */
+.pm-ear-l, .pm-ear-r { transform-box: view-box; }
+.pm-ear-l { transform-origin: 83px 68px; animation: pm-ear-twitch 5.4s ease-in-out infinite; }
+.pm-ear-r { transform-origin: 157px 68px; animation: pm-ear-twitch 7.1s ease-in-out infinite; }
+@keyframes pm-ear-twitch {
+  0%, 84%, 100% { transform: rotate(0deg); }
+  89% { transform: rotate(-7deg); }
+  94% { transform: rotate(4deg); }
+}
+
+.pm-arm-l { transform-origin: 76px 152px; }
+.pm-arm-r { transform-origin: 164px 152px; }
 
 .is-waving .pm-arm-r { animation: pm-wave 0.55s ease-in-out 3; }
 @keyframes pm-wave {
-  0%, 100% { transform: rotate(8deg); }
+  0%, 100% { transform: rotate(0deg); }
   50% { transform: rotate(-52deg); }
 }
 .is-stretching .pm-arm-l { animation: pm-stretch-l .9s ease-out forwards; }
 .is-stretching .pm-arm-r { animation: pm-stretch-r .9s ease-out forwards; }
 .is-stretching .pm-bob { animation: pm-stretch-body 1.6s ease-in-out; }
-@keyframes pm-stretch-l { to { transform: rotate(150deg); } }
-@keyframes pm-stretch-r { to { transform: rotate(-150deg); } }
+@keyframes pm-stretch-l { to { transform: rotate(128deg); } }
+@keyframes pm-stretch-r { to { transform: rotate(-128deg); } }
 @keyframes pm-stretch-body {
   0%, 100% { transform: scaleY(1) translateY(0); }
   40% { transform: scaleY(1.08) translateY(-6px); }
@@ -110,5 +130,5 @@
   .panda-mascot { width: 68px; right: 10px; bottom: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pm-bob, .pm-eyes-open { animation: none !important; }
+  .pm-bob, .pm-eyes-open, .pm-ear-l, .pm-ear-r { animation: none !important; }
 }

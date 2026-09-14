@@ -10,45 +10,100 @@
     { action: 'stretch', text: 'ふぅ〜、伸びるー' }
   ];
 
+  /* 耳の形(基準座標: 付け根が原点、上向き)。頭より先に描き、付け根は頭で隠す */
+  var EAR_PATH = 'M-15,6 C-19,-10 -15.5,-28 -4,-36 ' +
+                 'C8,-44.5 24,-35 24,-20 ' +
+                 'C24,-9 19.5,0 14,6 Z';
+
+  function ear(side) {
+    /* side: 1 = 向かって右耳, -1 = 左耳(反転配置) */
+    var cx = side > 0 ? 157 : 83;
+    var t = 'translate(' + cx + ',68) rotate(' + (side > 0 ? 27 : -27) + ')' +
+            (side > 0 ? '' : ' scale(-1,1)');
+    return '<g class="' + (side > 0 ? 'pm-ear-r' : 'pm-ear-l') + '">' +
+             '<g transform="' + t + '">' +
+               '<path d="' + EAR_PATH + '" fill="#1C2B39"/>' +
+             '</g>' +
+           '</g>';
+  }
+
+  function paw(cx, cy, tilt) {
+    return '<g transform="rotate(' + tilt + ' ' + cx + ' ' + cy + ')">' +
+             '<ellipse cx="' + cx + '" cy="' + cy + '" rx="14.5" ry="10.5" fill="var(--pm-ink)"/>' +
+             '<circle cx="' + (cx - 9.4) + '" cy="' + (cy + 5.4) + '" r="4.7" fill="var(--pm-ink)"/>' +
+             '<circle cx="' + cx + '" cy="' + (cy + 7.6) + '" r="4.9" fill="var(--pm-ink)"/>' +
+             '<circle cx="' + (cx + 9.4) + '" cy="' + (cy + 5.4) + '" r="4.7" fill="var(--pm-ink)"/>' +
+           '</g>';
+  }
+
+  function foot(cx, tilt) {
+    return '<g transform="rotate(' + tilt + ' ' + cx + ' 220)">' +
+             '<ellipse cx="' + cx + '" cy="220" rx="15.5" ry="10.5" fill="var(--pm-ink)"/>' +
+             '<circle cx="' + (cx - 9.6) + '" cy="225" r="4.6" fill="var(--pm-ink)"/>' +
+             '<circle cx="' + cx + '" cy="227" r="4.9" fill="var(--pm-ink)"/>' +
+             '<circle cx="' + (cx + 9.6) + '" cy="225" r="4.6" fill="var(--pm-ink)"/>' +
+           '</g>';
+  }
+
   var svgMarkup = '' +
     '<svg class="panda-mascot-svg" viewBox="0 0 240 240" role="img" aria-label="パンダのマスコット">' +
-    '<ellipse cx="120" cy="230" rx="56" ry="8" fill="#000" opacity="0.08"/>' +
+    '<ellipse cx="120" cy="232" rx="50" ry="7" fill="#000" opacity="0.08"/>' +
     '<g class="pm-bob">' +
-      '<g class="pm-leg-l"><rect x="88" y="196" width="34" height="40" rx="17" fill="var(--pm-ink)"/></g>' +
-      '<g class="pm-leg-r"><rect x="118" y="196" width="34" height="40" rx="17" fill="var(--pm-ink)"/></g>' +
-      '<ellipse cx="120" cy="170" rx="50" ry="44" fill="var(--pm-white)" stroke="var(--pm-ink)" stroke-width="2"/>' +
-      '<ellipse cx="80" cy="150" rx="17" ry="21" fill="var(--pm-ink)"/>' +
-      '<ellipse cx="160" cy="150" rx="17" ry="21" fill="var(--pm-ink)"/>' +
-      '<g class="pm-arm-l"><rect x="62" y="146" width="32" height="52" rx="16" fill="var(--pm-ink)"/></g>' +
-      '<g class="pm-arm-r"><rect x="146" y="146" width="32" height="52" rx="16" fill="var(--pm-ink)"/></g>' +
-      '<g>' +
-        '<circle cx="105" cy="134" r="7" fill="var(--pm-accent)"/>' +
-        '<circle cx="135" cy="134" r="7" fill="var(--pm-accent)"/>' +
-        '<circle cx="120" cy="134" r="5" fill="#7d281f"/>' +
+      '<g class="pm-leg-l">' +
+        '<rect x="88" y="192" width="27" height="30" rx="13.5" fill="var(--pm-ink)"/>' +
+        foot(101.5, -8) +
       '</g>' +
-      '<g>' +
-        '<circle cx="79" cy="57" r="21.5" fill="#1C2B39"/>' +
-        '<circle cx="161" cy="54" r="20.5" fill="#1C2B39"/>' +
-        '<ellipse cx="120" cy="113" rx="55" ry="49" fill="#F1ECE1" stroke="#1C2B39" stroke-width="4" transform="rotate(-3 120 113)"/>' +
-        '<ellipse cx="77" cy="125" rx="8.5" ry="5" fill="#E8A9A0" opacity="0.55" transform="rotate(-8 77 125)"/>' +
-        '<ellipse cx="164" cy="123" rx="8.5" ry="5" fill="#E8A9A0" opacity="0.55" transform="rotate(8 164 123)"/>' +
-        '<ellipse cx="94" cy="105" rx="17.5" ry="23" fill="#1C2B39" transform="rotate(30 94 105)"/>' +
-        '<ellipse cx="147.5" cy="103" rx="17" ry="22.5" fill="#1C2B39" transform="rotate(-27 147.5 103)"/>' +
+      '<g class="pm-leg-r">' +
+        '<rect x="125" y="192" width="27" height="30" rx="13.5" fill="var(--pm-ink)"/>' +
+        foot(138.5, 8) +
+      '</g>' +
+      '<ellipse cx="120" cy="180" rx="46" ry="39" fill="var(--pm-white)" stroke="var(--pm-ink)" stroke-width="2"/>' +
+      '<ellipse cx="81" cy="156" rx="14.5" ry="21" fill="var(--pm-ink)"/>' +
+      '<ellipse cx="159" cy="156" rx="14.5" ry="21" fill="var(--pm-ink)"/>' +
+      '<g class="pm-arm-l">' +
+        '<path d="M63,141 Q63,130 76,130 Q89,130 89,141 L87,175 L64.5,175 Z" fill="var(--pm-ink)"/>' +
+        paw(76, 181, 8) +
+      '</g>' +
+      '<g class="pm-arm-r">' +
+        '<path d="M151,141 Q151,130 164,130 Q177,130 177,141 L175.5,175 L153,175 Z" fill="var(--pm-ink)"/>' +
+        paw(164, 181, -8) +
+      '</g>' +
+      '<g class="pm-head" transform="rotate(-3.5 120 150)">' +
+        ear(-1) +
+        ear(1) +
+        '<ellipse cx="120" cy="96" rx="61" ry="55" fill="#F1ECE1" stroke="#1C2B39" stroke-width="4"/>' +
+        '<ellipse cx="87" cy="127" rx="10" ry="5.6" fill="#E8A19A" opacity="0.58" transform="rotate(-10 87 127)"/>' +
+        '<ellipse cx="153" cy="126" rx="10" ry="5.6" fill="#E8A19A" opacity="0.58" transform="rotate(10 153 126)"/>' +
+        '<ellipse cx="94" cy="101" rx="19.5" ry="25" fill="#1C2B39" transform="rotate(26 94 101)"/>' +
+        '<ellipse cx="146" cy="100" rx="19" ry="24.5" fill="#1C2B39" transform="rotate(-25 146 100)"/>' +
         '<g class="pm-eyes-open">' +
-          '<circle cx="95.5" cy="101" r="7" fill="#FDFCF8"/>' +
-          '<circle cx="146" cy="100" r="7" fill="#FDFCF8"/>' +
-          '<circle cx="96.3" cy="101.6" r="4.6" fill="#1C2B39"/>' +
-          '<circle cx="146.7" cy="100.6" r="4.6" fill="#1C2B39"/>' +
-          '<circle cx="94.1" cy="99.2" r="1.8" fill="#FDFCF8"/>' +
-          '<circle cx="144.5" cy="98.2" r="1.8" fill="#FDFCF8"/>' +
+          '<g class="pm-eye-l">' +
+            '<circle cx="97.5" cy="98" r="9.4" fill="#FDFCF8"/>' +
+            '<circle cx="98.4" cy="99.2" r="6.3" fill="#1C2B39"/>' +
+            '<circle cx="95" cy="95.3" r="2.7" fill="#FDFCF8"/>' +
+            '<circle cx="101" cy="102.6" r="1.5" fill="#FDFCF8"/>' +
+          '</g>' +
+          '<g class="pm-eye-r">' +
+            '<circle cx="142.8" cy="97" r="9.2" fill="#FDFCF8"/>' +
+            '<circle cx="143.7" cy="98.2" r="6.2" fill="#1C2B39"/>' +
+            '<circle cx="140.3" cy="94.3" r="2.7" fill="#FDFCF8"/>' +
+            '<circle cx="146.3" cy="101.6" r="1.5" fill="#FDFCF8"/>' +
+          '</g>' +
         '</g>' +
         '<g class="pm-eyes-closed">' +
-          '<path d="M89,102 Q95.5,97.5 102,102" stroke="#FDFCF8" stroke-width="2.6" fill="none" stroke-linecap="round"/>' +
-          '<path d="M139.5,101 Q146,96.5 152.5,101" stroke="#FDFCF8" stroke-width="2.6" fill="none" stroke-linecap="round"/>' +
+          '<path d="M88.5,99 Q97.5,92.5 106.5,99" stroke="#FDFCF8" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+          '<path d="M134,98 Q142.8,91.6 151.6,98" stroke="#FDFCF8" stroke-width="3" fill="none" stroke-linecap="round"/>' +
         '</g>' +
-        '<path d="M110,126 Q120,122 130,126 Q131.5,132.8 120,137.4 Q108.5,132.8 110,126 Z" fill="#1C2B39"/>' +
-        '<path d="M120,137.4 L120,143" stroke="#1C2B39" stroke-width="3" fill="none" stroke-linecap="round"/>' +
-        '<path d="M105,142.5 Q112.6,151 120,143.6 Q127.6,151.6 135,142" fill="none" stroke="#1C2B39" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<g class="pm-wink">' +
+          '<path d="M88.2,101.6 Q97.6,91.6 106.8,99.4" stroke="#FDFCF8" stroke-width="3.4" fill="none" stroke-linecap="round"/>' +
+        '</g>' +
+        '<path d="M107.5,114 Q120,108.8 132.5,114 Q134,122 120,127.5 Q106,122 107.5,114 Z" fill="#1C2B39"/>' +
+        '<path d="M120,127.5 L120,133" stroke="#1C2B39" stroke-width="3.2" fill="none" stroke-linecap="round"/>' +
+        '<path class="pm-mouth-closed" d="M101.5,129.5 C105.7,142 116.5,143.6 120,134.2 C123.5,143.6 134.3,142 138.5,129.5" fill="none" stroke="#1C2B39" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<g class="pm-mouth-open">' +
+          '<path d="M103.5,130 Q120,137.2 136.5,130 Q136,146 120,148 Q104,146 103.5,130 Z" fill="#1C2B39"/>' +
+          '<ellipse cx="120" cy="144" rx="7.5" ry="3.6" fill="var(--pm-accent)"/>' +
+        '</g>' +
       '</g>' +
     '</g>' +
     '</svg>';
