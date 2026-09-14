@@ -892,7 +892,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   white-space: nowrap;
 }
 .article-row > div {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 200px;
 }
 .article-row h3 {
