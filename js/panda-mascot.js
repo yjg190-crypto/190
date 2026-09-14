@@ -5,7 +5,7 @@
   } catch (e) {}
 
   var CONTACT_EMAIL = 'info@panndano.com';
-  var CONSULT_TEXT = '編集部に質問する?';
+  var CONSULT_TEXT = '編集部に相談する?';
   var CONSULT_HINT = 'もう一度タップでメール作成';
   var CONSULT_TIMEOUT = 6000;
   var AMBIENT = [
@@ -116,7 +116,7 @@
     wrap.className = 'panda-mascot';
     wrap.setAttribute('role', 'button');
     wrap.setAttribute('tabindex', '0');
-    wrap.setAttribute('aria-label', 'パンダのマスコット。クリックで編集部に質問できます');
+    wrap.setAttribute('aria-label', 'パンダのマスコット。クリックで編集部に相談できます');
     wrap.innerHTML =
       '<button type="button" class="panda-mascot-close" aria-label="マスコットを非表示にする">&times;</button>' +
       '<div class="panda-mascot-speech"></div>' +
