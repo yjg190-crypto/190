@@ -4,7 +4,10 @@
     if (window.localStorage && localStorage.getItem(STORAGE_KEY)) return;
   } catch (e) {}
 
-  var GREETINGS = ['やっほー!', 'こんにちは!', 'いらっしゃい!'];
+  var CONTACT_EMAIL = 'info@panndano.com';
+  var CONSULT_TEXT = '編集部に質問する?';
+  var CONSULT_HINT = 'もう一度タップでメール作成';
+  var CONSULT_TIMEOUT = 6000;
   var AMBIENT = [
     { action: 'wave', text: 'やっほー' },
     { action: 'stretch', text: 'ふぅ〜、伸びるー' }
@@ -113,7 +116,7 @@
     wrap.className = 'panda-mascot';
     wrap.setAttribute('role', 'button');
     wrap.setAttribute('tabindex', '0');
-    wrap.setAttribute('aria-label', 'パンダのマスコット。クリックで挨拶します');
+    wrap.setAttribute('aria-label', 'パンダのマスコット。クリックで編集部に質問できます');
     wrap.innerHTML =
       '<button type="button" class="panda-mascot-close" aria-label="マスコットを非表示にする">&times;</button>' +
       '<div class="panda-mascot-speech"></div>' +
@@ -123,6 +126,8 @@
     var speech = wrap.querySelector('.panda-mascot-speech');
     var closeBtn = wrap.querySelector('.panda-mascot-close');
     var busyUntil = 0;
+    var awaitingConfirm = false;
+    var confirmTimer = null;
 
     function say(text, ms) {
       speech.textContent = text;
@@ -134,6 +139,7 @@
     }
 
     function play(action, text, duration) {
+      if (awaitingConfirm) return;
       if (Date.now() < busyUntil) return;
       busyUntil = Date.now() + duration;
       wrap.classList.remove('is-waving', 'is-stretching');
@@ -144,17 +150,48 @@
       }, duration);
     }
 
-    function greet() {
-      var text = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
-      play('wave', text, 1700);
+    function cancelConsult() {
+      awaitingConfirm = false;
+      window.clearTimeout(confirmTimer);
+      wrap.classList.remove('is-asking', 'show-speech');
+    }
+
+    function showConsultPrompt() {
+      window.clearTimeout(say._t);
+      window.clearTimeout(confirmTimer);
+      wrap.classList.remove('is-stretching');
+      wrap.classList.add('is-waving');
+      window.setTimeout(function () {
+        wrap.classList.remove('is-waving');
+      }, 700);
+
+      speech.innerHTML = CONSULT_TEXT + '<span class="pm-hint">' + CONSULT_HINT + '</span>';
+      wrap.classList.add('show-speech', 'is-asking');
+      awaitingConfirm = true;
+      confirmTimer = window.setTimeout(cancelConsult, CONSULT_TIMEOUT);
+    }
+
+    function confirmAndOpenMail() {
+      cancelConsult();
+      window.location.href = 'mailto:' + CONTACT_EMAIL;
     }
 
     wrap.addEventListener('click', function (e) {
       if (e.target === closeBtn) return;
-      greet();
+      if (awaitingConfirm) {
+        confirmAndOpenMail();
+        return;
+      }
+      showConsultPrompt();
     });
     wrap.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); greet(); }
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (awaitingConfirm) { confirmAndOpenMail(); } else { showConsultPrompt(); }
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (awaitingConfirm && !wrap.contains(e.target)) { cancelConsult(); }
     });
     closeBtn.addEventListener('click', function (e) {
       e.stopPropagation();

@@ -76,6 +76,19 @@
 }
 .panda-mascot.show-speech .panda-mascot-speech { opacity: 1; transform: translateY(0) scale(1); }
 
+.panda-mascot.is-asking .panda-mascot-speech {
+  white-space: normal;
+  text-align: center;
+  max-width: 168px;
+}
+.panda-mascot-speech .pm-hint {
+  display: block;
+  font-weight: 400;
+  font-size: 0.66rem;
+  color: #6b6259;
+  margin-top: 2px;
+}
+
 .pm-bob { transform-origin: 120px 224px; animation: pm-breathe 2.6s ease-in-out infinite; }
 @keyframes pm-breathe {
   0%, 100% { transform: translateY(0) scaleY(1); }
