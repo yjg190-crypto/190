@@ -360,6 +360,7 @@ h1, h2, h3 {
   max-height: 380px;
   border-radius: var(--radius);
   overflow: hidden;
+  cursor: pointer;
 }
 .hero-banner .hero-stage img {
   position: absolute;

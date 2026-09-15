@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// ホーム:ヒーロー画像を数秒ごとにフェード切替
+// ホーム:ヒーロー画像を数秒ごとにフェード切替、クリックで次の写真へ
 document.addEventListener("DOMContentLoaded", function () {
   var stage = document.getElementById("heroStage");
   if (!stage) return;
@@ -59,12 +59,26 @@ document.addEventListener("DOMContentLoaded", function () {
   if (images.length < 2) return;
 
   var current = 0;
-  setInterval(function () {
+  var timer = null;
+
+  function showNext() {
     var next = (current + 1) % images.length;
     images[current].classList.remove("is-active");
     images[next].classList.add("is-active");
     current = next;
-  }, 8000);
+  }
+
+  function startTimer() {
+    timer = setInterval(showNext, 8000);
+  }
+
+  stage.addEventListener("click", function () {
+    clearInterval(timer);
+    showNext();
+    startTimer();
+  });
+
+  startTimer();
 });
 
 // 記事下部のSNSシェアボタン
