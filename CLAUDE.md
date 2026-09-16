@@ -179,6 +179,9 @@ article.content { max-width: 68ch; }
 
 - **2026-09-15:权限确认弹窗排查。** 用户反馈"最近总是要停下来确认,能一次性解决吗"。用`fewer-permission-prompts`技能扫了近11个会话的transcript,发现`git status/diff/log`、`grep`、`cat`、`ls`、`find`、`sed -n`这些高频只读命令本来就被Claude Code原生自动放行,不是它们在拦人;真正缺口是`curl`(本地测试服务器状态码检查)、`mkdir`/`rm`(仅限`/tmp`临时文件)、`pkill`(原来精确锁死到端口8931一个数字)。已按最小范围加进`.claude/settings.json`(只读的curl规则,随仓库一起git)和`.claude/settings.local.json`(其余几条,仅本机生效不进git)。`python3`/`uv run`/`node`这几个解释器命令2026-09-14那次会话已经整体放开过,这次没有进一步扩大范围——本质上等同于允许任意代码执行,是用户之前主动做过的取舍。**这类settings文件改动需要重启Claude Code/开新会话才生效。**
 
+- **2026-09-16:新申请的独立酒店联盟链接(`GWwfqgvrMW2`,通过WebFetch确认跳转至`jp.trip.com/hotels/`,通用不限城市)接入11篇文章的住宿区域段落**(hotel-guide/shenzhen-hotel-area-guide/west-lake/li-river-cruise/lijiang-old-town/panda-base/terracotta-army/forbidden-city/the-bund/zhuozheng-garden/sanxingdui-guide/shanghai-itinerary-2days)。`shenzhen-hotel-area-guide.html`原本用的是"机票+酒店组合"链接(`hNrrEkgdFW2`)但文章内容完全不涉及机票,属于文不对题,这次直接替换掉;其余10篇是在已有CTA之外新增一个专属酒店预订区块。已同步记录进`文档/计划进度.txt`第15条链接清单(commit c9e7fad/d48e364)。
+- **2026-09-16:补充8篇实名制景区文章的"记得带护照"提醒**(熊猫基地/黄山/张家界天門山・武陵源/漓江下り/拙政園/三星堆/麗江古城/莫高窟)。逐个WebSearch核实了各景区官方的外国人验票规则后才写,不是套用统一模板——**熊猫基地**外国人走"无身分証験票通道"刷护照;**黄山**外国人不能用在线实名系统,必须去南門・北門综合服务窗口凭护照办理;**张家界(天門山)**可以在线用护照号预约,但当天要去人工团队窗口(非自助机)取纸质票;其余4篇(漓江/拙政園/三星堆/莫高窟)是标准的"实名予约,外国人用护照号予约+入场出示"模式。**故宮/兵馬俑/長城/九寨溝此前已经写过护照提醒,没有重复处理;西湖本体是免费开放公园没有票闸,判断不适用,跳过。**(commit 4e2f627)
+
 ## 目标与现状判断(仅供参考,非精确承诺)
 
 内容质量和更新纪律是目前最扎实的部分。月10万日元营收目标,按现有节奏预计7-10个月可达成,前提是外部链接建设能够跟上;若外链持续缺失,单靠内容自然沉淀,时间线不会显著提前。
