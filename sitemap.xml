@@ -211,6 +211,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://panndano.com/articles/lanzhou-city-guide</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://panndano.com/articles/jinan-city-guide</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
