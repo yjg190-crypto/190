@@ -70,6 +70,10 @@
 - **真正有效的修法**:把分隔符从"挂在`<a>`标签内的伪元素"改成完全独立的`<span class="sep">`,作为兄弟节点插在两个`<a>`标签之间,彻底脱离两侧链接的hover范围。
 - **验证方法的教训**:前两次"验证通过"用的是给`<style>`加`a.brand-mini{text-decoration:underline !important;}`来"伪造"hover效果再截图,这种方法**看起来合理但不可靠**,会跟真实`:hover`触发的渲染路径不完全一致。后来改用Playwright(`uv run --with playwright python3 ...`,用已装好的`uv`,配合本机已有的`google-chrome`做executable_path,不用额外下载浏览器)做真实鼠标hover(`locator.hover()`)截图,才发现前两次修复根本没生效。**以后凡是`:hover`相关的CSS验证,必须用真实hover触发(Playwright等),不能用强改样式伪造。**
 
+### 11. `.footer-grid`(非首页)之前是flex,和上方`.article-layout`的260px侧边栏对不齐
+首页专用的`.footer-grid-home`早就用grid精确对齐过上方`.home-layout`的三栏比例(见上面的记录),但文章/分类/关于等页面共用的普通`.footer-grid`一直是`display:flex; justify-content:space-between`,3个`<div>`按内容宽度自动排布,右栏(運営者について等链接)的左边界和上方`.article-layout`固定260px的侧边栏完全对不上(2026-09-18实测:侧边栏x区间960-1220,旧footer右栏却是1036-1240,左边界差了76px)。**用户是从视觉上发现"首页对齐了但文章页没对齐"才报告的这个问题**,肉眼看无法一眼判断具体差多少像素,排查时用Playwright量了`bounding_box()`坐标才确认根因和修复效果(不要只凭截图目测判断"看起来对齐了")。
+修法:比照`.footer-grid-home`的思路,改成`grid-template-columns: 1fr 1fr 260px; gap:32px`,让右栏固定260px与侧边栏对齐,860px断点收窄成单列(匹配`.article-layout`自身的收窄断点,而不是照抄`.footer-grid-home`的1080px/700px两级断点——因为普通页面上方是`.article-layout`的单一断点结构,不是首页的三栏结构,断点要跟着各自的上方布局走,不能不假思索复用home版本的断点)。
+
 ## 内容质量标准(逐步摸索出的规则)
 
 1. **具体数字/政策一定要查证,而且要查最新的**——多次出现过"查到的信息是旧版政策"的情况,例如离境退税起退点2025年4月从500元降到了200元,若不查证容易写错。**App/品牌改名也要单独查一遍**:饿了么2025年12月改名"淘宝闪购"(团队服务不变,图标配色都换了),写完初稿后建议单独搜一次"XX 改名/更名"确认没有踩坑(2026-09-07,china-travel-apps.html发布后才发现这条,返工修正过)
