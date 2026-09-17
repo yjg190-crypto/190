@@ -1408,10 +1408,10 @@ article.content li { margin-bottom: 0.4em; }
 .related-articles a:hover { color: var(--seal); }
 .related-articles .cat-label {
   display: inline-block;
-  width: 46px;
+  width: 65px;
   text-align: right;
   font-size: 0.68rem;
   color: var(--brass);
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
