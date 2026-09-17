@@ -1383,6 +1383,11 @@ article.content li { margin-bottom: 0.4em; }
   padding-top: 0.7em;
   border-top: 1px solid var(--line);
 }
+/* article-listの最終行にすでに区切り線(border-bottom)があるため、直後に続く場合は二重線にならないよう省略 */
+.article-list + .related-articles {
+  border-top: none;
+  padding-top: 0;
+}
 .related-articles .tier-label { margin-bottom: 6px; }
 .related-articles ul {
   list-style: none;
