@@ -323,10 +323,12 @@ h1, h2, h3 {
   font-size: 0.85rem;
 }
 .footer-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 260px;
+  gap: 32px;
+}
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 /* トップページのみ、上部.home-layoutの3列(観光ガイド/ニュース/サイドバー)と縦位置を揃える */
 .footer-grid-home {
