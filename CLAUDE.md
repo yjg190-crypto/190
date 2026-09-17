@@ -1,12 +1,12 @@
 # パンダの国から (panndano.com) — 项目说明
 
-面向日本人的中国旅行信息网站。静态HTML网站,Cloudflare Pages托管,git部署。
+面向日本人的中国旅行信息网站。静态HTML网站,**实际是Cloudflare Workers(静态资源模式)托管,不是Cloudflare Pages**(2026-09-17才搞清楚这个区别,见下方pitfall,GitHub上的check名是"Workers Builds: 190"),git部署。
 以下内容整理自网站建设过程中的实际经验,请在开始工作前通读一遍。
 
 ## 基本信息
 
 - 域名: panndano.com | 仓库结构: 根目录直接是网站文件(无build步骤)
-- 部署方式: `git add . && git commit -m "..." && git push`,Cloudflare Pages自动构建
+- 部署方式: `git add . && git commit -m "..." && git push`,GitHub App"Cloudflare Workers and Pages"自动触发构建(`npx wrangler deploy`),**push之后必须用`gh api repos/yjg190-crypto/190/commits/<sha>/check-runs`确认构建成功,不能默认"push成功=已上线"**(见下方pitfall 0,2026-09-17连续5次构建静默失败,线上冻结在旧版本好几个小时都没发现)
 - Google Analytics: G-0ZFE2F4CBL | AdSense: ca-pub-1529975884470418(审核中)
 - 品牌名固定写法: **「パンダの国から」/ "PANDA NO KUNI KARA"**(不是"PANDA NO",这个错误在早期反复出现过)
 
@@ -22,6 +22,13 @@
 ```
 
 ## ⚠️ 最容易踩的坑(按重要性排序)
+
+### 0. `git push`成功 ≠ 已部署上线,`.git`目录体积过大会让构建静默失败
+2026-09-17,连续5次commit(补配图→联盟链接重排→页脚链接重排→页脚对齐修复)push之后都以为已经上线,用户刷新页面反馈"改了怎么没生效",排查发现**从当天第一个commit开始,构建其实一直在失败**,线上冻结在前一天的旧版本长达数小时,而`git push`本身完全没有报错、也没有主动提示部署失败。
+- **根因**:`wrangler.jsonc`的`assets.directory`配置是`"./"`(仓库根目录),`npx wrangler deploy`扫描资源时把`.git/objects/pack/*.pack`这个git内部打包文件也当成了"网站资源"一起处理。当天新增了较多实拍图片,把这个pack文件体积推过了28MiB,超出Cloudflare Workers单资源25MiB上限,报错`Asset too large`直接导致部署失败。
+- **修复**:仓库根目录新增`.assetsignore`文件(Cloudflare Workers资源部署专用的忽略文件,语法类似`.gitignore`),内容为`.git`,排除后构建立即恢复正常(commit `fd92b3d`)。
+- **排查方法**:GitHub Actions式的"check run"是可查的——`gh api repos/yjg190-crypto/190/commits/<sha>/check-runs`能看到每次push对应的"Workers Builds: 190"这个check的`status`/`conclusion`,失败时`output.summary`里有Cloudflare Dashboard的构建详情链接,点进去能看到完整构建日志(本环境没有Cloudflare API token/wrangler登录凭证,连不上dashboard API,只能让用户手动打开链接复制日志文本)。
+- **以后的操作纪律**:**`git push`之后不能假设已经上线**,尤其是刚新增较大二进制文件(图片/视频)的那次push,应该主动用上面的`gh api`命令确认最新commit的构建状态是`success`,不要等用户发现"改了没生效"才回头排查。日常也可以顺手用`du -sh .git`留意仓库体积是否在持续增长,增长过快时留意是否需要`git gc`或警惕这个25MiB上限。
 
 ### 1. 侧边栏不是live include,是每个文件里各自复制的一份静态HTML
 改动侧边栏(增删分类、改文字)必须**批量替换所有文件**,不是改一处生效全站。
