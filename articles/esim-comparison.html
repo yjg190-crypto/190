@@ -152,6 +152,31 @@
       <li>Holaflyのように<strong>VPN機能が内蔵されたeSIM</strong>を選ぶ:別途VPNアプリを用意する手間が省けます</li>
       <li>VPNが使えない場合の代替:日本のSIMカードでローミングする方法もあります(<a href="roaming-no-vpn.html">関連記事はこちら</a>)</li>
     </ul>
+    <div class="callout">
+      本記事で紹介しているVPN不要タイプのeSIMは、通信が海外の出口を経由する仕組み上、<a href="wechat-pay.html">WeChat Pay</a>・<a href="alipay.html">Alipay</a>の決済で「IPアドレスが中国国外」と判定され、不正利用防止のため決済がブロックされやすくなることがあります(<a href="roaming-no-vpn.html">日本のSIMでローミングする場合と同じ原理</a>です)。Google・LINEは問題なく使えるのに、いざ支払おうとすると決済だけ通らない、というケースが起こり得ます。決済がうまくいかない場合は、現地Wi-Fiに一時的に切り替える、または以下の中国国内の電話番号と組み合わせたデュアルSIM構成にしておくと安心です。
+    </div>
+
+    <div class="pick-box">
+      <span class="pick-label">決済トラブル対策に</span>
+      <h3><a href="https://www.trip.com/t/LLEmvNStIW2" target="_blank" rel="noopener sponsored">北京・上海・広州・成都空港受取SIMカード</a></h3>
+      <p>物理SIMで中国国内キャリアに直接接続するため、WeChat Pay・AlipayのIP判定で不利になりません。「Google・LINEはeSIMで、決済はこの物理SIMで」という<a href="china-phone-number-guide.html">デュアルSIM構成</a>にしておけば、両方の弱点を打ち消し合えます。日本語・円建てで予約でき、空港カウンターでの受け取りもスムーズです。</p>
+    </div>
+
+    <h2>Q&amp;A:中国国内の電話番号も持てて、VPNも不要なeSIMはある?</h2>
+    <p><strong>結論:そのような単一のeSIMは存在しません。</strong>これは中国のeSIM政策と、いわゆる「グレートファイアウォール」の仕組み上の理由によるものです。</p>
+    <ul>
+      <li><strong>中国国内の電話番号を持てるeSIM</strong>:<a href="china-phone-number-guide.html">別記事</a>で解説の通り、中国移動・中国聯通・中国電信が発行するeSIMは、実名制の手続きを経たうえで、原則として中国本土向け「国行」版の対応機種にしか書き込めません。日本など海外で購入した端末向けに、中国国内番号付きのeSIMを個人が自由にオンライン入手できる仕組みは、本稿執筆時点では存在しません</li>
+      <li><strong>VPN不要をうたうeSIM</strong>(本記事で紹介しているUbigi・Holafly・Airaloなど):これらは「国際ローミング用eSIM」という別の仕組みで、通信が海外(現地キャリアが接続する先の国・地域)を経由するためVPNなしでもGoogleやLINEにアクセスできますが、その代わり中国国内の電話番号としては機能せず、SMS認証には対応していません</li>
+    </ul>
+    <p>つまり「中国国内番号」と「VPN不要」は、現状ではそれぞれ別の仕組みに由来するトレードオフの関係にあり、1枚のeSIMで両方を満たすことはできないと考えておくのが安全です。</p>
+
+    <h3>両方の機能が欲しい場合:デュアルSIM(2回線同時待受)という選択肢</h3>
+    <p>スマートフォンのデュアルSIM機能(物理SIM+eSIMを同時に待受できる機種)を使えば、実質的に両方の目的を同時に満たせます。</p>
+    <ul>
+      <li><strong>メイン回線(物理SIM):</strong>中国国内の実体SIMカード(<a href="china-phone-number-guide.html">空港受け取りSIMなど</a>)を挿しておき、通話・SMS認証の受信専用にする</li>
+      <li><strong>サブ回線(eSIM):</strong>本記事で紹介しているVPN不要タイプのeSIMを追加し、モバイルデータ通信(インターネット接続)側をこちらに割り当てる</li>
+    </ul>
+    <p>この組み合わせにより、「中国国内番号でSMS認証を受信しながら、データ通信はVPNなしでGoogle・LINE・Instagramなどにアクセスできる」という状態を作れます。設定手順は機種によって異なりますが、多くのスマートフォンでは「設定」→「モバイル通信」から、通話・SMS用の回線とデータ通信用の回線をそれぞれ個別に指定できます。</p>
 
     <h2>eSIM vs レンタルWi-Fi vs 現地SIM</h2>
     <table>
@@ -187,6 +212,7 @@
       <li><a href="https://k-tai.watch.impress.co.jp/docs/column/minna/2072880.html" target="_blank" rel="noopener">ケータイWatch(Impress) 中国でChatGPTが使えるeSIM実測レポート</a></li>
       <li><a href="https://finance.sina.com.cn/tech/roll/2026-01-14/doc-inhhhnwm4951095.shtml" target="_blank" rel="noopener">新浪科技 - 2026年、eSIMはまだ主流にならない</a></li>
       <li><a href="https://coral-esim.com/zh-Hans/blog/china-iphone-esim" target="_blank" rel="noopener">国行iPhone能用eSIM吗?对応機種と海外運用ガイド - CORAL eSIM</a></li>
+      <li><a href="https://www.zhihu.com/question/479760561/answer/2062084347" target="_blank" rel="noopener">知乎:微信・支付宝掃碼支付「IPアドレス異常」で拒否される原因</a></li>
     </ul>
 
     <div class="related-articles">
