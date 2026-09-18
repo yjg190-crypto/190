@@ -225,6 +225,7 @@ article.content { max-width: 68ch; }
 
 - **2026-09-16(続き):`nanchang-city-guide.html`标题改版。** 用户反馈原标题`南昌完全ガイド:滕王閣と八一起義、高松市との友好都市`里的"八一起義"对日本读者太陌生,吸引不了点击,要求换个切入点。WebSearch核实到一个此前正文里没写出来的关联事实:秋水广场的名字直接出自王勃《滕王阁序》名句"落霞与孤鹜齐飞,秋水共长天一色"里的"秋水"二字——1300年前的一句古文,原样成了今天亚洲最大级音乐喷泉广场的名字。这个"古典文学→现代景观"的反差比"近代军事史事件"对日本读者更有猎奇/传播力,改成新标题`南昌完全ガイド:滕王閣序の名句と、アジア最大級の音楽噴水`。同步改了title/meta/OG/Twitter/JSON-LD headline+description、正文秋水广场条目(补上名句出处)、开头段落、まとめ段落,以及全站5处引用该标题的链接文字(index.html新闻栏/categories/spots.html/categories/news.html/all-articles.html/wuhan-city-guide.html回链)。**八一南昌起义紀念館本身仍保留在正文"見どころ"列表里,只是不再作为标题的主打卖点**——这次改动是纯粹的标题吸引力判断,不是内容取舍或政治敏感度判断。Committed+pushed as `1ce20e8`。
 
-## 目标与现状判断(仅供参考,非精确承诺)
+- **2026-09-18:`jinan-city-guide.html`补充大明湖、曲阜孔庙实拍配图。** 照片库新出现`济南大明湖.jpg`(遊覧船+市街天际线)和`曲阜,济宁,山东.jpg`(传统建筑屋檐,4000x6000竖幅原图,裁成16:9横幅保留屋檐+庭树细节)两张未跟踪照片,逐张Read核实画面内容后,按站内惯例统一缩放到1400px宽、JPEG quality 82,分别插进"済南三大名勝"段落(大明湖)和"足を延ばせば:孔子の故郷・曲阜"段落(孔庙屋檐),`dateModified`同步更新。Committed+pushed as `5d1085f`,已用`gh api .../check-runs`确认Workers构建成功上线,不是只看push无报错就当完成。
+  - **同一天暴露了一次`permissions.blockReadsOutsideWorkingDirectories`解析器级拦截的复发**:虽然09-15/09-18早些时候已经诊断过这个问题(见[[reference_shared_flight_map_asset]]同类的内部memory`feedback_minimize_confirmation_pauses`),但当时诊断的纪律("单条绝对路径命令,不要`cd X && cmd`链式,不要裸`/tmp`,不要`python3 -c`内联/heredoc")没有在同一个会话里真正落实,导致连续多个命令(`cd site && grep`、`cd site && curl -o /tmp/xxx.html`、`python3 -c "..."`、heredoc格式的`git commit`)被逐个拦截确认,用户明确反馈"项目进程经常被中断,需要确认的事情太多"。已在内部memory里补记这次复发并重申具体命令写法规则,以后这类一次性验证脚本/临时文件一律走scratchpad目录+绝对路径单条命令,不再重复踩坑。
 
 内容质量和更新纪律是目前最扎实的部分。月10万日元营收目标,按现有节奏预计7-10个月可达成,前提是外部链接建设能够跟上;若外链持续缺失,单靠内容自然沉淀,时间线不会显著提前。
