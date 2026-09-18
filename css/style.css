@@ -7,7 +7,8 @@
   --paper: #f1ece1;      /* 旧地图纸色 — 页面底色 */
   --paper-raised: #e8e0d0; /* 卡片浮起色 */
   --seal: #b23a2e;       /* 印章朱红 — 唯一强调色,克制使用 */
-  --brass: #b98d3e;      /* 黄铜金 — 细节点缀 */
+  --brass: #b98d3e;      /* 黄铜金 — 暗背景上の装飾・背景/枠線用、文字色としては使わない(paper背景とのコントラスト比2.57:1でWCAG AA未達) */
+  --brass-text: #7d5f28; /* 黄铜金の文字用ダーク版 — paper背景とのコントラスト比約5.2:1、WCAG AA(4.5:1)適合。淡色背景上の小さいラベル文字はこちらを使う */
   --text: #2a2118;       /* 正文深棕黑 */
   --text-muted: #6b5f4f; /* 次要文字 */
   --line: rgba(42, 33, 24, 0.16); /* 分隔线 */
@@ -181,7 +182,7 @@ h1, h2, h3 {
 .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.22em;
-  color: var(--brass);
+  color: var(--brass-text);
   text-transform: uppercase;
   margin-bottom: 14px;
 }
@@ -482,7 +483,7 @@ h1, h2, h3 {
   flex-shrink: 0;
   white-space: nowrap;
   font-size: 0.68rem;
-  color: var(--brass);
+  color: var(--brass-text);
   min-width: 34px;
 }
 .spot-item a {
@@ -514,7 +515,7 @@ h1, h2, h3 {
   flex-shrink: 0;
   white-space: nowrap;
   font-size: 0.68rem;
-  color: var(--brass);
+  color: var(--brass-text);
   width: 34px;
   letter-spacing: normal;
 }
@@ -840,7 +841,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 .breadcrumb .cat-link {
   font-size: 0.78rem;
   letter-spacing: 0.12em;
-  color: var(--brass);
+  color: var(--brass-text);
   text-transform: uppercase;
 }
 .breadcrumb a.cat-link:hover { color: var(--seal); }
@@ -890,7 +891,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 }
 .article-row .row-date {
   font-size: 0.68rem;
-  color: var(--brass);
+  color: var(--brass-text);
   flex-shrink: 0;
   white-space: nowrap;
 }
@@ -1035,7 +1036,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
 }
 .news-item .news-date {
   font-size: 0.72rem;
-  color: var(--brass);
+  color: var(--brass-text);
   flex-shrink: 0;
   white-space: nowrap;
   width: 62px;
@@ -1137,7 +1138,7 @@ article.content .ad-slot.inline-pr p a:hover { text-decoration: underline; }
   margin-top: 16px;
 }
 .article-meta .updated {
-  color: var(--brass);
+  color: var(--brass-text);
   font-weight: 500;
 }
 
@@ -1409,7 +1410,7 @@ article.content li { margin-bottom: 0.4em; }
 .related-articles .cat-label {
   display: inline-block;
   font-size: 0.68rem;
-  color: var(--brass);
+  color: var(--brass-text);
   margin-right: 10px;
 }
 
