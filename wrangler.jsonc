@@ -1,7 +1,13 @@
 {
   "name": "panda-no",
   "compatibility_date": "2026-08-24",
+  "main": "_worker.js",
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "binding": "ASSETS",
+    // Required: with the default (false) Cloudflare serves a matching static
+    // asset *before* running _worker.js, so the www -> apex redirect would
+    // never fire for "/", "/articles/*" or any other existing file.
+    "run_worker_first": true
   }
 }
