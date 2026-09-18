@@ -88,6 +88,16 @@
 3. **第三版(正确)**:用户明确说"对齐"指的是和"関連記事"/"旅行準備の次のステップ"**这行标题本身**左对齐,不是和上方列表对齐。改回最简单的方案——去掉固定宽度和右对齐,`.cat-label`保持自然宽度、默认左对齐(inline-block的第一个子元素天然贴着`<li>`左边界,和同一区块的tier-label左边界必然一致,不需要额外计算),`margin-right`统一收紧到10px。用Playwright量`tier-label`和`cat-label`的x坐标确认完全一致(都是20px)。
 **教训**:用户说"对齐"时,不要自己脑补对齐的参照物是什么(上方列表?左侧标题?),两次改都改了但方向错了、用户还要专门澄清一次。之后遇到类似模糊的"对齐/间距"反馈,应该先反问清楚具体和哪个元素对齐,而不是凭自己的猜测连续修改再让用户来回确认效果。
 
+### 13. `www.panndano.com` 是 Worker Custom Domain,**不受 Cloudflare Redirect Rules 影响**——www/裸域名重复内容问题,2026-09-18决定暂不处理
+背景:`http://www.panndano.com`访问时观察到"两跳"(先http→https,再www→裸域名),原以为是两条zone-level Redirect Rules顺序没优化好,于是新建了一条`http.host eq "www.panndano.com"`→重定向到裸域名的自定义表达式规则。
+**关键发现**:这个假设是错的。`www.panndano.com`这条DNS记录类型是**Worker**(不是普通A/CNAME),在Cloudflare Dashboard里显示"自动已锁定"——它是Worker "190"的**Custom Domain**绑定,走的是直连Worker的专属路由通道,**根本不经过Zone的Redirect Rules引擎**(Cloudflare新建规则时其实有弹窗警告过"此规则可能不适用于您的流量/DNS配置可能不是代理流量",一开始误判成false positive,后来用"删除规则前后行为完全不变"做了双重验证坐实了这个结论)。
+**当前真实状态**(2026-09-18 curl实测):`http://`和`https://`、`www.`和裸域名四种组合**全部能正常访问**(http自动301到https,"Always Use HTTPS"本身正常工作),只是www和裸域名各自独立返回200,内容重复,不会互相跳转。不是访问故障,是SEO意义上的重复内容问题。
+**为什么优先级不高**:`sitemap.xml`全部154条、全站138个文件的`<link rel="canonical">`标签**统一指向裸域名**,一个都没指向www,这是很强的规范化信号,搜索引擎通常会照此收录,实际被拆分权重的风险偏低。用户2026-09-18明确选择"先不管,以后再说"。
+**以后如果要处理,可选方案(按风险从低到高)**:
+1. 去Workers & Pages→190→设置→Custom Domains,把`www.panndano.com`从绑定里移除,改成普通代理DNS记录(如CNAME指回裸域名),这样Redirect Rules才会真正生效——纯Dashboard操作,不改代码,不影响其他任何页面
+2. 在`wrangler.jsonc`加`main`入口("_worker.js")+`assets.binding`,手写Worker代码判断`request.url`的hostname做301——**这个方案会让站点从"纯静态资源部署"变成"每个请求都过一层Worker执行"**,有轻微延迟增加、请求计入Workers配额、且脚本写错会导致全站(不只www)打不开的风险,需要部署后不只看`gh api .../check-runs`的构建状态,还要手动curl首页/文章页/404页确认运行时行为没跑偏
+3. 继续放着不管
+
 ## 内容质量标准(逐步摸索出的规则)
 
 1. **具体数字/政策一定要查证,而且要查最新的**——多次出现过"查到的信息是旧版政策"的情况,例如离境退税起退点2025年4月从500元降到了200元,若不查证容易写错。**App/品牌改名也要单独查一遍**:饿了么2025年12月改名"淘宝闪购"(团队服务不变,图标配色都换了),写完初稿后建议单独搜一次"XX 改名/更名"确认没有踩坑(2026-09-07,china-travel-apps.html发布后才发现这条,返工修正过)
